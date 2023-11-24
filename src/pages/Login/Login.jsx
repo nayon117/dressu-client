@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
-// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -11,9 +12,15 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   //   const navigate = useNavigate()
-  //   const { createUser,handleUpdateProfile } = useAuth();
-  const onSubmit = (data) => {
-    console.log(data);
+  const { signIn } = useAuth();
+  const onSubmit = async (data) => {
+    try {
+      // login
+      await signIn(data.email, data.password);
+      toast.success("sign in successful");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -30,7 +37,6 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-            
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -81,7 +87,7 @@ const Login = () => {
             <p className="text-center py-2 mb-3">
               Already have an account ?
               <Link className="text-blue-600" to="/register">
-                 Sign up
+                Sign up
               </Link>
             </p>
             <div className="divider px-4"></div>

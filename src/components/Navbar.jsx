@@ -38,7 +38,7 @@ const Navbar = () => {
   );
 
   // context
-   const {user} = useAuth()
+   const {user,logOut} = useAuth()
 
   // const handleSignUp = () => {
   //     logOut()
@@ -101,13 +101,13 @@ const Navbar = () => {
                 </button>
               </li>
               <Link to="/dashboard">
-                <div className="btn   btn-sm whitespace-nowrap  btn-ghost">
+                <div className="btn block mx-auto mt-2 btn-sm whitespace-nowrap  btn-ghost">
                   Dashboard
                 </div>
               </Link>
 
               <li>
-                <button className="btn btn-sm whitespace-nowrap   btn-ghost">
+                <button onClick={logOut} className="btn btn-sm whitespace-nowrap   btn-ghost">
                   Logout
                 </button>
               </li>
