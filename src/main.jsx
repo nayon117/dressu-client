@@ -4,10 +4,13 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import myCreatedRoute from './Route/Route'
 import { Toaster } from 'react-hot-toast'
+import AuthProvider from './provider/AuthProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={myCreatedRoute} ></RouterProvider>
     <Toaster/>
+   </AuthProvider>
   </React.StrictMode>,
 )
