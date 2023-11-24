@@ -1,16 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 const Navbar = () => {
   const navLinks = (
     <>
       <li className="font-medium text-base">
-        <Link to="/">Home</Link>{" "}
+        <NavLink
+          to="/ "
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "bg-[#332885] text-white" : ""
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li className="font-medium text-base">
-        <Link to="/available-foods">All Classes</Link>
+        <NavLink
+          to="/all-classes"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "bg-[#332885] text-white" : ""
+          }
+        >
+          All Classes
+        </NavLink>
       </li>
       <li className="font-medium text-base">
-        <Link to="/add-food">Teach On Skillify</Link>
+        <NavLink
+          to="/teach "
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "bg-[#332885] text-white" : ""
+          }
+        >
+          Teach On Skillify
+        </NavLink>
       </li>
     </>
   );
@@ -93,7 +114,9 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn btn-sm btn-neutral">Login</button>
+            <button className="btn btn-sm text-white bg-[#332885]">
+              Login
+            </button>
           </Link>
         )}
       </div>
