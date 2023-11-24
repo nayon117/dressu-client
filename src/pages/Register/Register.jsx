@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
-// import useAuth from "../../hooks/useAuth";
+import { imageUpload } from "../../api/utils";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const {
@@ -11,11 +12,23 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   //   const navigate = useNavigate()
-  //   const { createUser,handleUpdateProfile } = useAuth();
-  const onSubmit = (data) => {
-      console.log(data);
-      console.log(data.image[0]);
- 
+  const { createUser, updateUserProfile } = useAuth();
+  const onSubmit = async (data) => {
+    const image = data.image[0];
+
+    try {
+      // upload image to imgbb
+      const imageData = await imageUpload(image);
+
+      // create user
+      const result = await createUser(data.email, data.password);
+
+      // update user
+      await updateUserProfile(data.name, imageData?.data?.display_url);
+      console.log(result);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
