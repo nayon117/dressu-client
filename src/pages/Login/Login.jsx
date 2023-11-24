@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { signIn, signInWithGoogle } = useAuth();
+
   const {
     register,
     // reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  //   const navigate = useNavigate()
-  const { signIn } = useAuth();
+
   const onSubmit = async (data) => {
     try {
       // login
@@ -20,6 +23,20 @@ const Login = () => {
       toast.success("sign in successful");
     } catch (error) {
       console.log(error.message);
+    }
+  };
+
+  //  google sign in
+  const handleGoogleLogin = async () => {
+    try {
+      // create user
+      const result = await signInWithGoogle();
+      console.log(result);
+
+      navigate("/");
+      toast.success("sign in successful");
+    } catch (error) {
+      toast.error(error?.message);
     }
   };
 
@@ -84,6 +101,14 @@ const Login = () => {
                 />
               </div>
             </form>
+            <div
+              onClick={handleGoogleLogin}
+              className="  btn bg-white mx-8  p-1  "
+            >
+              <FcGoogle size={32} />
+
+              <p>Continue with Google</p>
+            </div>
             <p className="text-center py-2 mb-3">
               Already have an account ?
               <Link className="text-blue-600" to="/register">

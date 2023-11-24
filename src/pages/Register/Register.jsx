@@ -1,18 +1,20 @@
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { imageUpload } from "../../api/utils";
 import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
   const {
     register,
     // reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  //   const navigate = useNavigate()
-  const { createUser, updateUserProfile } = useAuth();
+
   const onSubmit = async (data) => {
     const image = data.image[0];
 
@@ -28,6 +30,20 @@ const Register = () => {
       console.log(result);
     } catch (error) {
       console.log(error.message);
+    }
+  };
+
+  //  google sign in
+  const handleGoogleLogin = async () => {
+    try {
+      // create user
+      const result = await signInWithGoogle();
+      console.log(result);
+
+      navigate("/");
+      toast.success("sign up successful");
+    } catch (error) {
+      toast.error(error?.message);
     }
   };
 
@@ -115,7 +131,7 @@ const Register = () => {
                 )}
               </div>
 
-              <div className="form-control mt-6">
+              <div className="form-control mt-4">
                 <input
                   className="btn btn-primary"
                   type="submit"
@@ -123,13 +139,20 @@ const Register = () => {
                 />
               </div>
             </form>
-            <p className="text-center py-2 mb-3">
+            <div
+              onClick={handleGoogleLogin}
+              className="  btn bg-white mx-8  p-1  "
+            >
+              <FcGoogle size={32} />
+
+              <p>Continue with Google</p>
+            </div>
+            <p className="text-center mt-3 mb-5 py-1  ">
               Already have an account ?
-              <Link className="text-blue-600" to="/login">
+              <Link className="text-blue-600 ml-1" to="/login">
                 Login
               </Link>
             </p>
-            <div className="divider px-4"></div>
           </div>
         </div>
       </div>
