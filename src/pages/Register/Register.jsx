@@ -1,13 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { TbFidgetSpinner } from "react-icons/tb";
 import { useForm } from "react-hook-form";
 import { imageUpload } from "../../api/utils";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import registrationImg from "../../../public/regis.json";
+import Lottie from "lottie-react";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
+  const { createUser, updateUserProfile, signInWithGoogle, loading } =
+    useAuth();
   const {
     register,
     // reset,
@@ -27,6 +31,8 @@ const Register = () => {
 
       // update user
       await updateUserProfile(data.name, imageData?.data?.display_url);
+      toast.success("sign up successful");
+      navigate("/");
       console.log(result);
     } catch (error) {
       console.log(error.message);
@@ -51,13 +57,12 @@ const Register = () => {
     <>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center md:w-1/2 lg:text-left">
-            <h1 className="text-5xl font-bold">Sign Up Now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+          <div className="text-center md:w-1/2  ">
+            <Lottie
+              className="w-2/3"
+              loop={false}
+              animationData={registrationImg}
+            ></Lottie>
           </div>
           <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -131,25 +136,30 @@ const Register = () => {
                 )}
               </div>
 
-              <div className="form-control mt-4">
-                <input
-                  className="btn btn-primary"
+              <div className="mt-2">
+                <button
                   type="submit"
-                  value="Sign Up"
-                />
+                  className="bg-[#332885] btn w-full rounded-md py-2 text-white"
+                >
+                  {loading ? (
+                    <TbFidgetSpinner className="animate-spin m-auto"></TbFidgetSpinner>
+                  ) : (
+                    "sign up "
+                  )}
+                </button>
               </div>
             </form>
             <div
               onClick={handleGoogleLogin}
-              className="  btn bg-white mx-8  p-1  "
+              className="  btn bg-white mx-8  mb-4   "
             >
               <FcGoogle size={32} />
 
               <p>Continue with Google</p>
             </div>
-            <p className="text-center mt-3 mb-5 py-1  ">
+            <p className="text-center  mb-3    ">
               Already have an account ?
-              <Link className="text-blue-600 ml-1" to="/login">
+              <Link className="text-[#332885] ml-1" to="/login">
                 Login
               </Link>
             </p>

@@ -1,13 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
-
+import loginImg from '../../../public/loginImg.json'
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { TbFidgetSpinner } from "react-icons/tb";
+import Lottie from "lottie-react";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signIn, signInWithGoogle } = useAuth();
+  const { signIn, signInWithGoogle,loading } = useAuth();
 
   const {
     register,
@@ -21,6 +23,7 @@ const Login = () => {
       // login
       await signIn(data.email, data.password);
       toast.success("sign in successful");
+      navigate('/')
     } catch (error) {
       console.log(error.message);
     }
@@ -32,7 +35,6 @@ const Login = () => {
       // create user
       const result = await signInWithGoogle();
       console.log(result);
-
       navigate("/");
       toast.success("sign in successful");
     } catch (error) {
@@ -44,13 +46,12 @@ const Login = () => {
     <>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center md:w-1/2 lg:text-left">
-            <h1 className="text-5xl font-bold">Sign Up Now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+          <div className="text-center md:w-1/2  ">
+          <Lottie
+              className="w-2/3"
+              loop={false}
+              animationData={loginImg }
+            ></Lottie>
           </div>
           <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -93,13 +94,19 @@ const Login = () => {
                 )}
               </div>
 
-              <div className="form-control mt-6">
-                <input
-                  className="btn btn-primary"
-                  type="submit"
-                  value="Login"
-                />
-              </div>
+             
+              <div className="mt-3">
+            <button
+              type="submit"
+              className="bg-[#332885] w-full  btn text-white"
+            >
+              {loading ? (
+                <TbFidgetSpinner className="animate-spin m-auto"></TbFidgetSpinner>
+              ) : (
+                "Login"
+              )}
+            </button>
+          </div>
             </form>
             <div
               onClick={handleGoogleLogin}
@@ -111,7 +118,7 @@ const Login = () => {
             </div>
             <p className="text-center py-2 mb-3">
               Already have an account ?
-              <Link className="text-blue-600" to="/register">
+              <Link className="text-[#332885] ml-1" to="/register">
                 Sign up
               </Link>
             </p>
