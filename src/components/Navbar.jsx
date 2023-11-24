@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import useAuth from "../hooks/useAuth";
 const Navbar = () => {
   const navLinks = (
     <>
@@ -37,7 +38,7 @@ const Navbar = () => {
   );
 
   // context
-  const user = "";
+   const {user} = useAuth()
 
   // const handleSignUp = () => {
   //     logOut()
