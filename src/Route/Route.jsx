@@ -6,6 +6,7 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import Teach from "../pages/Teach/Teach";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: 'all-classes',
-                element: <AllClasses/>
+                element: <PrivateRoute><AllClasses/></PrivateRoute>
             },
             {
                 path: 'teach',

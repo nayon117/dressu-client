@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../../public/loginImg.json'
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
@@ -8,8 +8,10 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import Lottie from "lottie-react";
 
 const Login = () => {
+  const { signIn, signInWithGoogle, loading } = useAuth();
   const navigate = useNavigate();
-  const { signIn, signInWithGoogle,loading } = useAuth();
+  const location = useLocation()
+  const from = location?.state?.from?.pathname || '/'
 
   const {
     register,
@@ -22,8 +24,8 @@ const Login = () => {
     try {
       // login
       await signIn(data.email, data.password);
+      navigate(from,{replace:true});
       toast.success("sign in successful");
-      navigate('/')
     } catch (error) {
       console.log(error.message);
     }
