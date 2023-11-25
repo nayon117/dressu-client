@@ -14,15 +14,12 @@ const Footer = () => {
 
           <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             <Link>
-              {" "}
               <FaFacebook className="text-2xl" />
             </Link>
             <Link>
-              {" "}
               <FaYoutube className="text-2xl" />
             </Link>
             <Link>
-              {" "}
               <FaTwitter className="text-2xl" />
             </Link>
           </nav>
