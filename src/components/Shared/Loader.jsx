@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { CircleLoader } from "react-spinners";
 
 const Loader = () => {
