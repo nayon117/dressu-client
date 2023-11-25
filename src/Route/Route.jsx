@@ -7,6 +7,7 @@ import Teach from "../pages/Teach/Teach";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../layout/DashboardLayout";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -37,6 +38,15 @@ const myCreatedRoute = createBrowserRouter([
         path: '/login',
         element: <Login/>
     },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            {
+                
+            }
+        ]
+    }
 ])
 
 export default myCreatedRoute;
