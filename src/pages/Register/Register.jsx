@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import registrationImg from "../../../public/regis.json";
 import Lottie from "lottie-react";
+import { saveUser } from "../../api/auth";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -31,9 +32,14 @@ const Register = () => {
 
       // update user
       await updateUserProfile(data.name, imageData?.data?.display_url);
+     
+      // save user information
+      const databaseResponse = await saveUser(result?.user)
+      console.log(databaseResponse);
+
       toast.success("sign up successful");
       navigate("/");
-      console.log(result);
+      
     } catch (error) {
       console.log(error.message);
     }

@@ -9,10 +9,15 @@ import { FcSettings } from "react-icons/fc";
 import { AiOutlineBars } from "react-icons/ai";
 import { BsGraphUp } from "react-icons/bs";
 import Logo from "../Shared/Logo";
+import StudentMenu from "./StudentMenu";
+import TeacherMenu from "./TeacherMenu";
+import AdminMenu from "./AdminMenu";
+import { FaHome } from "react-icons/fa";
 
 const Sidebar = () => {
   const [toggle, setToggle] = useState(false);
   const [isActive, setActive] = useState(false);
+  const role = 'admin';
 
   //   For guest/host menu item toggle button
   const toggleHandler = (event) => {
@@ -64,13 +69,22 @@ const Sidebar = () => {
               />
 
               {/* Menu Items */}
+               
+            {role==='student' && <StudentMenu/>}
+            {role==='teacher' ? toggle? <TeacherMenu/> : <StudentMenu/>:''}
+            {role==='admin' && <AdminMenu/>}
             </nav>
           </div>
         </div>
 
         <div>
           <hr />
-
+          
+          <MenuItem
+            icon={FaHome}
+            label="Home"
+            address="/"
+          />
           <MenuItem
             icon={FcSettings}
             label="Profile"

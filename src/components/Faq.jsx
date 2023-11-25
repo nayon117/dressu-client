@@ -5,7 +5,7 @@ const Faq = () => {
         Frequently asked questions
       </h2>
       <div className="collapse collapse-arrow bg-base-200 mt-12">
-        <input type="radio" name="my-accordion-2" checked="checked" />
+        <input type="radio" name="my-accordion-2" defaultChecked="checked" />
         <div className="collapse-title text-xl font-medium">
           What subjects or courses are available on your platform?
         </div>
