@@ -38,16 +38,7 @@ const Navbar = () => {
   );
 
   // context
-   const {user,logOut} = useAuth()
-
-  // const handleSignUp = () => {
-  //     logOut()
-  //     .then(() => {
-  //          toast.success('logged out successfully')
-  //       }).catch((error) => {
-  //           toast.error(error.message);
-  //       });
-  // }
+   const {user,logOut} = useAuth() || {}
 
   return (
     <div className="navbar py-4 bg-base-100">

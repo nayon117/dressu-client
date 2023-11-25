@@ -8,7 +8,7 @@ import { TbFidgetSpinner } from "react-icons/tb";
 import Lottie from "lottie-react";
 
 const Login = () => {
-  const { signIn, signInWithGoogle, loading } = useAuth();
+  const { signIn, signInWithGoogle, loading } = useAuth() || {}
   const navigate = useNavigate();
   const location = useLocation()
   const from = location?.state?.from?.pathname || '/'

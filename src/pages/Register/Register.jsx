@@ -7,12 +7,12 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import registrationImg from "../../../public/regis.json";
 import Lottie from "lottie-react";
-import { saveUser } from "../../api/auth";
+import { getToken, saveUser } from "../../api/auth";
 
 const Register = () => {
   const navigate = useNavigate();
   const { createUser, updateUserProfile, signInWithGoogle, loading } =
-    useAuth();
+    useAuth() || {}
   const {
     register,
     // reset,
@@ -37,11 +37,15 @@ const Register = () => {
       const databaseResponse = await saveUser(result?.user)
       console.log(databaseResponse);
 
+      // get token 
+      await getToken(result?.user?.email)
+
       toast.success("sign up successful");
       navigate("/");
       
     } catch (error) {
       console.log(error.message);
+      toast.error(error?.message)
     }
   };
 
