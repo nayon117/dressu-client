@@ -11,8 +11,6 @@ import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
 
-
-
 const ReviewSec = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -20,8 +18,7 @@ const ReviewSec = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
-    console.log(reviews);
-
+   
   return (
     <section className="mt-20">
       {/* <SectionTitle
