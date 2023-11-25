@@ -1,4 +1,5 @@
 import Banner from "../../components/Banner";
+import BecomeTeacher from "../../components/BecomeTeacher";
 import Partner from "../../components/Partner";
 import ReviewSec from "../../components/ReviewSec";
 import Stats from "../../components/Stats";
@@ -9,7 +10,8 @@ const Home = () => {
       <Banner />
       <Partner />
       <ReviewSec />
-      <Stats/>
+      <Stats />
+      <BecomeTeacher/>
     </div>
   );
 };
