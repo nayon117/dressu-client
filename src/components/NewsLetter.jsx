@@ -13,7 +13,7 @@ const NewsLetter = () => {
     <div className="my-20">
       <div className="mx-4 md:mx-12 py-8 md:py-12 grid place-content-center px-4 md:px-0">
         <div className="lg:flex justify-start lg:gap-28">
-          <div className>
+          <div >
             <h1 className="font-bold text-5xl text-gray-800">Newsletter</h1>
             <p className="pt-8 md:pt-4 text-gray-600">
               Sign up for our newsletter and get weekly updates. We only send
@@ -36,10 +36,8 @@ const NewsLetter = () => {
               </button>
             </form>
             <p className="pt-4 text-xs text-gray-600">
-              Read our{" "}
-              <u className="cursor-pointer no-underline hover:underline">
-                privacy policy
-              </u>
+              Read our privacy policy
+              
             </p>
           </div>
           <div className="pt-8 lg:pt-0">

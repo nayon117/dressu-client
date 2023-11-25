@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { TbFidgetSpinner } from "react-icons/tb";
 import Lottie from "lottie-react";
+import { getToken, saveUser } from "../../api/auth";
 
 const Login = () => {
   const { signIn, signInWithGoogle, loading } = useAuth() || {}
@@ -23,7 +24,10 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       // login
-      await signIn(data.email, data.password);
+       const result =  await signIn(data.email, data.password);
+       // get token
+       await getToken(result?.user?.email);
+
       navigate(from,{replace:true});
       toast.success("sign in successful");
     } catch (error) {
@@ -31,15 +35,24 @@ const Login = () => {
     }
   };
 
+ 
   //  google sign in
   const handleGoogleLogin = async () => {
     try {
       // create user
       const result = await signInWithGoogle();
-      console.log(result);
-      navigate("/");
+
+      // save user in database
+      const dbResponse = await saveUser(result?.user);
+      console.log(dbResponse);
+
+      // get token
+      await getToken(result?.user?.email);
+
+      navigate(from,{replace:true});
       toast.success("sign in successful");
     } catch (error) {
+      console.log(error);
       toast.error(error?.message);
     }
   };

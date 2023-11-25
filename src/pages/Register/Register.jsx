@@ -49,16 +49,23 @@ const Register = () => {
     }
   };
 
-  //  google sign in
-  const handleGoogleLogin = async () => {
+   //  google sign in
+   const handleGoogleLogin = async () => {
     try {
       // create user
       const result = await signInWithGoogle();
-      console.log(result);
+
+      // save user in database
+      const dbResponse = await saveUser(result?.user);
+      console.log(dbResponse);
+
+      // get token
+      await getToken(result?.user?.email);
 
       navigate("/");
       toast.success("sign up successful");
     } catch (error) {
+      console.log(error);
       toast.error(error?.message);
     }
   };

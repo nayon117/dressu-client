@@ -79,7 +79,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user.photoURL} />
+                <img src={user?.photoURL} />
               </div>
             </label>
             <ul
@@ -87,8 +87,8 @@ const Navbar = () => {
               className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box z-50 w-52"
             >
               <li>
-                <button className="btn   btn-sm whitespace-nowrap  btn-ghost">
-                  {user.displayName}
+                <button className="btn  btn-sm whitespace-nowrap  btn-ghost">
+                  {user?.displayName}
                 </button>
               </li>
               <Link to="/dashboard">
