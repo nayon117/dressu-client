@@ -7,7 +7,7 @@ const Banner = () => {
       <div>
         <img
           className="max-h-[550px] rounded-md"
-          src="https://i.ibb.co/ngnYp47/img1.jpg"
+          src="https://i.ibb.co/Jsv6mdS/img4.jpg"
         />
       </div>
       <div>
@@ -25,7 +25,7 @@ const Banner = () => {
       <div>
         <img
           className="max-h-[550px] rounded-md"
-          src="https://i.ibb.co/Jsv6mdS/img4.jpg"
+          src="https://i.ibb.co/ngnYp47/img1.jpg"
         />
       </div>
     </Carousel>
