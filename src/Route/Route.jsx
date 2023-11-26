@@ -14,6 +14,8 @@ import AddClass from "../pages/Dashboard/Teacher/AddClass";
 import TeacherReq from "../pages/Dashboard/Admin/TeacherReq";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import Profile from "../pages/Dashboard/Common/Profile";
+import TeacherRoute from "./TeacherRoute";
+import AdminRoute from "./AdminRoute";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -46,34 +48,37 @@ const myCreatedRoute = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
         // student route
             {
                 path: 'my-enroll',
-                element:<Myenroll/>
+                element:<PrivateRoute><Myenroll/></PrivateRoute>
             },
             // teacher route
             {
                 path: 'add-class',
-                element:<AddClass/>
+                element:<PrivateRoute><TeacherRoute><AddClass/></TeacherRoute></PrivateRoute>
             },
             {
                 path: 'my-class',
-                element:<Myclass/>
+                element:<PrivateRoute><TeacherRoute><Myclass/></TeacherRoute></PrivateRoute>
+               
             },
             // admin routes
             {
                 path: 'teacher-request',
-                element:<TeacherReq/>
+                element:<PrivateRoute><AdminRoute><TeacherReq/></AdminRoute></PrivateRoute>
             },
             {
                 path: 'manage-users',
-                element:<ManageUsers/>
+                element:<PrivateRoute><AdminRoute><ManageUsers/></AdminRoute></PrivateRoute>
+               
             },
             {
                 path: 'all-classes',
-                element:<AllClasses/>
+                element:<PrivateRoute><AdminRoute><AllClasses/></AdminRoute></PrivateRoute>
+
             },
             // common route
             {
