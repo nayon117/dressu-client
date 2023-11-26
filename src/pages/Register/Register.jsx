@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { imageUpload } from "../../api/utils";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
-import registrationImg from "../../../public/regis.json";
+import registrationImg from "../../assets/regis.json";
 import Lottie from "lottie-react";
 import { getToken, saveUser } from "../../api/auth";
 
