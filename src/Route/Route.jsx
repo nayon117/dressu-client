@@ -16,6 +16,7 @@ import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import Profile from "../pages/Dashboard/Common/Profile";
 import TeacherRoute from "./TeacherRoute";
 import AdminRoute from "./AdminRoute";
+import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -76,8 +77,8 @@ const myCreatedRoute = createBrowserRouter([
                
             },
             {
-                path: 'all-classes',
-                element:<PrivateRoute><AdminRoute><AllClasses/></AdminRoute></PrivateRoute>
+                path: 'all-classes-admin',
+                element:<PrivateRoute><AdminRoute><AllClassesAdmin/></AdminRoute></PrivateRoute>
 
             },
             // common route

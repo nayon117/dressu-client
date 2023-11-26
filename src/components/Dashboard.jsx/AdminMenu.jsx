@@ -19,7 +19,7 @@ const AdminMenu = () => {
     <MenuItem
       icon={FaUserCog}
       label="All Classes"
-      address="/dashboard/all-classes"
+      address="/dashboard/all-classes-admin"
     />
   </>
   );
