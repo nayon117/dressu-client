@@ -13,11 +13,13 @@ import StudentMenu from "./StudentMenu";
 import TeacherMenu from "./TeacherMenu";
 import AdminMenu from "./AdminMenu";
 import { FaHome } from "react-icons/fa";
+import useRole from "../../hooks/useRole";
 
 const Sidebar = () => {
   const [toggle, setToggle] = useState(false);
   const [isActive, setActive] = useState(false);
-  const role = 'admin';
+  const [role] = useRole()
+  console.log(role);
 
   //   For guest/host menu item toggle button
   const toggleHandler = (event) => {
