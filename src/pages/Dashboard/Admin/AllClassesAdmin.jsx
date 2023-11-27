@@ -8,7 +8,7 @@ const AllClassesAdmin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axiosSecure.get("/class-add");
+        const { data } = await axiosSecure.get("/class-add/requests");
         console.log(data);
         setClassData(data);
       } catch (error) {
