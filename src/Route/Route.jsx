@@ -30,11 +30,11 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: 'all-classes',
-                element: <PrivateRoute><AllClasses/></PrivateRoute>
+                element: <AllClasses/>
             },
             {
                 path: 'teach',
-                element: <Teach/>
+                element:<PrivateRoute><Teach/></PrivateRoute> 
             },
         ]
         
