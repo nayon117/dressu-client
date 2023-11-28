@@ -3,21 +3,21 @@ import { useLoaderData } from "react-router-dom";
 import DetailsCard from "./DetailsCard";
 
 const CardDetails = () => {
-    const [details,setDetails] = useState({})
+  const [detailInfo, setDetailInfo] = useState({})
     const loadedDetails = useLoaderData()
     
     useEffect(() => {
         if (loadedDetails) {
-             setDetails(loadedDetails)
+             setDetailInfo(loadedDetails)
          }
     }, [loadedDetails])
   
-    console.log(details);
+    console.log(detailInfo);
     
   return (
     <div>
           <div>
-              <DetailsCard details={details}></DetailsCard>
+              <DetailsCard detailInfo={detailInfo}></DetailsCard>
        </div>
     </div>
   );
