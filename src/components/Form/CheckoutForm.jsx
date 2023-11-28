@@ -84,7 +84,7 @@ const CheckoutForm = ({  itemInfo, closeModal }) => {
 
       try {
         await saveItemInfo(paymentInfo)
-        const text = `Booking Successful! ${paymentIntent.id}`;
+        const text = `Payment Successful! ${paymentIntent.id}`;
         toast.success(text);
         navigate('/dashboard/my-enroll')
       } catch (error) {

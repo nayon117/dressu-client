@@ -4,15 +4,17 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axiosSecure from "../../../api";
+import useAuth from "../../../hooks/useAuth";
 
 const Myclass = () => {
-  const [myClasses, setMyClasses] = useState([])
+  const [myClasses, setMyClasses] = useState([]);
+  const { user } = useAuth();
   useEffect(() => {
-    fetch('http://localhost:5000/class-add/requests')
-    .then(res=>res.json())
-    .then(data=>setMyClasses(data))
-  }, [])
-  
+    fetch(`http://localhost:5000/class-add/requests?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setMyClasses(data));
+  }, [user?.email]);
+
   const handleDeleteClass = (classItem) => {
     Swal.fire({
       title: "Are you sure?",
@@ -27,8 +29,8 @@ const Myclass = () => {
         const res = await axiosSecure.delete(`/class-add/${classItem._id}`);
         console.log(res.data);
         if (res.data.deletedCount > 0) {
-          setMyClasses(prevClasses =>
-            prevClasses.filter(item => item._id !== classItem._id)
+          setMyClasses((prevClasses) =>
+            prevClasses.filter((item) => item._id !== classItem._id)
           );
           Swal.fire({
             title: "Deleted!",
@@ -39,9 +41,6 @@ const Myclass = () => {
       }
     });
   };
-
-
-
 
   return (
     <div className="overflow-x-auto">
@@ -57,7 +56,6 @@ const Myclass = () => {
             <th>update</th>
             <th>Delete</th>
             <th>Action</th>
-             
           </tr>
         </thead>
         <tbody>
@@ -65,25 +63,37 @@ const Myclass = () => {
             <tr key={index}>
               <th>{index + 1}</th>
               <td>{classItem.title}</td>
-              <td>{classItem.image}</td>
+              <td>
+          <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-10 h-10">
+                <img src={classItem.image} />
+              </div>
+            </div>
+            
+          </div>
+        </td>
+
               <td>{classItem.email}</td>
               <td>
                 <button>{classItem.status}</button>
               </td>
               <td>
-              <Link to={`/dashboard/UpdateClass/${classItem._id}`}>
-               
-                <button><FaEdit /></button>
-               
+                <Link to={`/dashboard/UpdateClass/${classItem._id}`}>
+                  <button>
+                    <FaEdit />
+                  </button>
                 </Link>
-                </td>
+              </td>
               <td>
-                 <button onClick={()=>handleDeleteClass(classItem)}> <MdDeleteForever/></button> 
+                <button onClick={() => handleDeleteClass(classItem)}>
+                  {" "}
+                  <MdDeleteForever />
+                </button>
               </td>
               <td>
                 <button>see details</button>
               </td>
-              
             </tr>
           ))}
         </tbody>
