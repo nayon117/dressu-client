@@ -14,7 +14,7 @@ const NewsLetter = () => {
       <div className="mx-4 md:mx-12 py-8 md:py-12 grid place-content-center px-4 md:px-0">
         <div className="lg:flex justify-start lg:gap-28">
           <div >
-            <h1 className="font-bold text-5xl text-gray-800">Newsletter</h1>
+            <h1 data-aos="fade-up" className="font-bold text-5xl text-gray-800">Newsletter</h1>
             <p className="pt-8 md:pt-4 text-gray-600">
               Sign up for our newsletter and get weekly updates. We only send
               emails about our latest products on the market once a week every

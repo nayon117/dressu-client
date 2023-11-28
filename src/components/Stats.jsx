@@ -5,7 +5,7 @@ import { FaPeopleRoof } from "react-icons/fa6";
 const Stats = () => {
   return (
     <div className="mt-12 px-4">
-      <h2 className="text-4xl font-bold text-center mb-8">
+      <h2 data-aos="fade-up" className="text-4xl font-bold text-center mb-8">
         Statscape & Visuals
       </h2>
       <div className="flex flex-col-reverse md:flex-row items-center justify-between">

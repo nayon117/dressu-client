@@ -44,9 +44,9 @@ const Myclass = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table w-full">
         {/* head */}
-        <thead>
+        <thead className="text-base">
           <tr>
             <th>#</th>
             <th>Title</th>
@@ -64,35 +64,35 @@ const Myclass = () => {
               <th>{index + 1}</th>
               <td>{classItem.title}</td>
               <td>
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle w-10 h-10">
-                <img src={classItem.image} />
-              </div>
-            </div>
-            
-          </div>
-        </td>
+                <div className="flex items-center gap-3">
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-10 h-10">
+                      <img src={classItem.image} />
+                    </div>
+                  </div>
+                </div>
+              </td>
 
               <td>{classItem.email}</td>
               <td>
-                <button>{classItem.status}</button>
+                <button className="btn btn-xs bg-[#332883] text-white">
+                  {classItem.status}
+                </button>
               </td>
               <td>
                 <Link to={`/dashboard/UpdateClass/${classItem._id}`}>
-                  <button>
+                  <button className="text-xl">
                     <FaEdit />
                   </button>
                 </Link>
               </td>
               <td>
-                <button onClick={() => handleDeleteClass(classItem)}>
-                  {" "}
+                <button className="text-xl" onClick={() => handleDeleteClass(classItem)}>
                   <MdDeleteForever />
                 </button>
               </td>
               <td>
-                <button>see details</button>
+                <button className="btn btn-xs bg-[#332883] text-white">see details</button>
               </td>
             </tr>
           ))}

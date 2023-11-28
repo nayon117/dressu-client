@@ -24,6 +24,11 @@ const AllClassesAdmin = () => {
     const {data} =  await axiosSecure.put(`/class-add/approve/${id}`)
     console.log(data);
     if (data.modifiedCount > 0) {
+      setClassData(prevData =>
+        prevData.map(classItem =>
+          classItem._id === id ? { ...classItem, status: 'Approved' } : classItem
+        )
+      );
       toast.success('class approved successfully')
     }
       
@@ -31,9 +36,9 @@ const AllClassesAdmin = () => {
   
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table w-full">
         {/* head */}
-        <thead>
+        <thead className="text-base">
           <tr>
             <th>#</th>
             <th>Title</th>
@@ -41,7 +46,7 @@ const AllClassesAdmin = () => {
             <th>Email</th>
             <th>Action</th>
             <th>Action</th>
-            <th>See Progress</th>
+          
           </tr>
         </thead>
         <tbody>
@@ -52,11 +57,11 @@ const AllClassesAdmin = () => {
               <td>{classItem.image}</td>
               <td>{classItem.email}</td>
               <td>
-                <button onClick={()=>approveClass(classItem._id)}>{classItem.status}</button>
+                <button className="btn btn-xs bg-[#332883] text-white" onClick={()=>approveClass(classItem._id)}>{classItem.status}</button>
                 
               </td>
-              <td>Reject</td>
-              <td>See Progress</td>
+              <td> <button className="btn btn-xs bg-[#332883] text-white "> Reject</button></td>
+              
             </tr>
           ))}
         </tbody>
