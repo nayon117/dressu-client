@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Myclass = () => {
   const [myClasses, setMyClasses] = useState([])
@@ -19,6 +21,9 @@ const Myclass = () => {
             <th>Image</th>
             <th>Email</th>
             <th>status</th>
+            <th>update</th>
+            <th>Delete</th>
+            <th>Action</th>
              
           </tr>
         </thead>
@@ -31,7 +36,19 @@ const Myclass = () => {
               <td>{classItem.email}</td>
               <td>
                 <button>{classItem.status}</button>
-                
+              </td>
+              <td>
+              <Link to={`/dashboard/UpdateClass/${classItem._id}`}>
+               
+                <button><FaEdit /></button>
+               
+                </Link>
+                </td>
+              <td>
+                <button> <MdDeleteForever/></button>
+              </td>
+              <td>
+                <button>see details</button>
               </td>
               
             </tr>

@@ -17,6 +17,7 @@ import Profile from "../pages/Dashboard/Common/Profile";
 import TeacherRoute from "./TeacherRoute";
 import AdminRoute from "./AdminRoute";
 import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
+import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -63,8 +64,13 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: 'my-class',
-                element:<PrivateRoute><TeacherRoute><Myclass/></TeacherRoute></PrivateRoute>
-               
+                element:<PrivateRoute><TeacherRoute><Myclass/></TeacherRoute></PrivateRoute>  
+            },
+            {
+                path: '/dashboard/UpdateClass/:id',
+                element: <PrivateRoute><TeacherRoute><UpdateClass /></TeacherRoute></PrivateRoute>,
+                loader: ({ params }) =>fetch(`http://localhost:5000/class-add/${params.id}`),
+            
             },
             // admin routes
             {

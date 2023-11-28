@@ -26,7 +26,7 @@ const Teach = () => {
     console.log(datas);
     if (datas.insertedId) {
       reset();
-      toast.success("your class is pending! wait for admin approval");
+      toast.success("your teacher request is pending! wait for admin approval");
     }
   };
 
