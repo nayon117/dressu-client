@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
 import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
 import CardDetails from "../pages/DetailsPage/CardDetails";
+import MyClassDetails from "../pages/Dashboard/Teacher/MyClassDetails";
  
 
 const myCreatedRoute = createBrowserRouter([
@@ -74,7 +75,11 @@ const myCreatedRoute = createBrowserRouter([
                 element:<PrivateRoute><TeacherRoute><Myclass/></TeacherRoute></PrivateRoute>  
             },
             {
-                path: '/dashboard/UpdateClass/:id',
+                path: 'my-class/:id',
+                element:<PrivateRoute><TeacherRoute><MyClassDetails/></TeacherRoute></PrivateRoute>  
+            },
+            {
+                path: 'UpdateClass/:id',
                 element: <PrivateRoute><TeacherRoute><UpdateClass /></TeacherRoute></PrivateRoute>,
                 loader: ({ params }) =>fetch(`http://localhost:5000/class-add/${params.id}`),
             

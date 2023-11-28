@@ -92,7 +92,7 @@ const Myclass = () => {
                 </button>
               </td>
               <td>
-                <button className="btn btn-xs bg-[#332883] text-white">see details</button>
+               <Link to={`/dashboard/my-class/${classItem._id}`}> <button className="btn btn-xs bg-[#332883] text-white">see details</button></Link>
               </td>
             </tr>
           ))}
