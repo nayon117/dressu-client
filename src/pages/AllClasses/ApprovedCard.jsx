@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 const ApprovedCard = ({ approved }) => {
-     const {title,image ,name,price,details} = approved || {}
+     const {_id,title,image ,name,price,details} = approved || {}
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div className="card card-compact mt-16 bg-base-100 shadow-xl">
       <figure>
         <img
           src={image}
-          alt="Shoes"
+          alt="course image"
         />
       </figure>
       <div className="card-body">
@@ -14,7 +16,7 @@ const ApprovedCard = ({ approved }) => {
         <h2 className="card-title">price:$ {price}</h2>
         <p>{details}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Enroll Now</button>
+         <Link to={`/details/${_id}`}> <button className="btn bg-[#332883] text-white">Enroll Now</button></Link>
         </div>
       </div>
     </div>

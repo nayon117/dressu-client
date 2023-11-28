@@ -18,6 +18,8 @@ import TeacherRoute from "./TeacherRoute";
 import AdminRoute from "./AdminRoute";
 import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
 import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
+import CardDetails from "../pages/DetailsPage/CardDetails";
+ 
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -32,6 +34,11 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: 'all-classes',
                 element: <AllClasses/>
+            },
+            {
+                path: '/details/:id',
+                element: <CardDetails />,
+                loader:({params})=>fetch(`http://localhost:5000/class-add/${params.id}`)
             },
             {
                 path: 'teach',
