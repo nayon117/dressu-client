@@ -87,12 +87,20 @@ const Myclass = () => {
                 </Link>
               </td>
               <td>
-                <button className="text-xl" onClick={() => handleDeleteClass(classItem)}>
+                <button
+                  className="text-xl"
+                  onClick={() => handleDeleteClass(classItem)}
+                >
                   <MdDeleteForever />
                 </button>
               </td>
               <td>
-               <Link to={`/dashboard/my-class/${classItem._id}`}> <button className="btn btn-xs bg-[#332883] text-white">see details</button></Link>
+                <Link to={`/dashboard/my-class/${classItem._id}`}>
+                  {" "}
+                  <button className="btn btn-xs bg-[#332883] text-white">
+                    see details
+                  </button>
+                </Link>
               </td>
             </tr>
           ))}

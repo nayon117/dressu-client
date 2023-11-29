@@ -12,37 +12,33 @@ const TeacherReq = () => {
       try {
         const response = await axiosSecure.get("/teacher/pending-requests");
         const { data } = response;
-  
-        // Update the state by merging the existing pendingRequests with the fetched data
-        setPendingRequests(prevPendingRequests => [...prevPendingRequests, ...data]);
+        setPendingRequests(data);
       } catch (error) {
-        console.error("Error fetching class data:", error);
+        console.error("Error fetching requests:", error);
         // Handle fetch errors
       }
     };
-  
+
     fetchPendingRequests();
   }, []);
-  
 
   const approveRequest = async (id) => {
     try {
       const { data } = await axiosSecure.put(`/teacher/approve-request/${id}`);
-      console.log(data);
-      if (data.message === 'User role updated to teacher') {
-        toast.success('Teacher request approved successfully');
+      if (data.message === "User role updated to teacher") {
+        toast.success("Teacher request approved successfully");
         // Update the local pendingRequests state to reflect the changes
         setPendingRequests((prevRequests) =>
           prevRequests.map((request) =>
-            request._id === id ? { ...request, status: 'Approved' } : request
+            request._id === id ? { ...request, status: "accepted" } : request
           )
         );
       } else {
-        toast.error('Failed to approve teacher request');
+        toast.error("Failed to approve teacher request");
       }
     } catch (error) {
-      console.error('Error approving request:', error);
-      toast.error('Failed to approve teacher request');
+      console.error("Error approving request:", error);
+      toast.error("Failed to approve teacher request");
     }
   };
   return (

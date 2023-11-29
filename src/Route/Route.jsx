@@ -20,93 +20,146 @@ import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
 import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
 import CardDetails from "../pages/DetailsPage/CardDetails";
 import MyClassDetails from "../pages/Dashboard/Teacher/MyClassDetails";
- 
 
 const myCreatedRoute = createBrowserRouter([
-    {
-        path: "/",
-        element: <MainLayout></MainLayout>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children: [
-            {
-                path: '',
-                element:<Home/>
-            },
-            {
-                path: 'all-classes',
-                element: <AllClasses />,
-                loader:()=>fetch('http://localhost:5000/classes-count')
-            },
-            {
-                path: '/details/:id',
-                element: <CardDetails />,
-                loader:({params})=>fetch(`http://localhost:5000/class-add/${params.id}`)
-            },
-            {
-                path: 'teach',
-                element:<PrivateRoute><Teach/></PrivateRoute> 
-            },
-        ]
-        
-    },
-    {
-        path: '/register',
-        element:<Register/>
-    },
-    {
-        path: '/login',
-        element: <Login/>
-    },
-    {
-        path: '/dashboard',
-        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-        children: [
-        // student route
-            {
-                path: 'my-enroll',
-                element:<PrivateRoute><Myenroll/></PrivateRoute>
-            },
-            // teacher route
-            {
-                path: 'add-class',
-                element:<PrivateRoute><TeacherRoute><AddClass/></TeacherRoute></PrivateRoute>
-            },
-            {
-                path: 'my-class',
-                element:<PrivateRoute><TeacherRoute><Myclass/></TeacherRoute></PrivateRoute>  
-            },
-            {
-                path: 'my-class/:id',
-                element:<PrivateRoute><TeacherRoute><MyClassDetails/></TeacherRoute></PrivateRoute>  
-            },
-            {
-                path: 'UpdateClass/:id',
-                element: <PrivateRoute><TeacherRoute><UpdateClass /></TeacherRoute></PrivateRoute>,
-                loader: ({ params }) =>fetch(`http://localhost:5000/class-add/${params.id}`),
-            
-            },
-            // admin routes
-            {
-                path: 'teacher-request',
-                element:<PrivateRoute><AdminRoute><TeacherReq/></AdminRoute></PrivateRoute>
-            },
-            {
-                path: 'manage-users',
-                element:<PrivateRoute><AdminRoute><ManageUsers/></AdminRoute></PrivateRoute>
-               
-            },
-            {
-                path: 'all-classes-admin',
-                element:<PrivateRoute><AdminRoute><AllClassesAdmin/></AdminRoute></PrivateRoute>
-
-            },
-            // common route
-            {
-                path: 'profile',
-                element:<Profile/>
-            },
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+      {
+        path: "all-classes",
+        element: <AllClasses />,
+        loader: () => fetch("http://localhost:5000/classes-count"),
+      },
+      {
+        path: "/details/:id",
+        element: <CardDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/class-add/${params.id}`),
+      },
+      {
+        path: "teach",
+        element: (
+          <PrivateRoute>
+            <Teach />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      // student route
+      {
+        path: "my-enroll",
+        element: (
+          <PrivateRoute>
+            <Myenroll />
+          </PrivateRoute>
+        ),
+      },
+      // teacher route
+      {
+        path: "add-class",
+        element: (
+          <PrivateRoute>
+            <TeacherRoute>
+              <AddClass />
+            </TeacherRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-class",
+        element: (
+          <PrivateRoute>
+            <TeacherRoute>
+              <Myclass />
+            </TeacherRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-class/:id",
+        element: (
+          <PrivateRoute>
+            <TeacherRoute>
+              <MyClassDetails />
+            </TeacherRoute>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/total-enrollment/${params.id}`),
+      },
+      {
+        path: "UpdateClass/:id",
+        element: (
+          <PrivateRoute>
+            <TeacherRoute>
+              <UpdateClass />
+            </TeacherRoute>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/class-add/${params.id}`),
+      },
+      // admin routes
+      {
+        path: "teacher-request",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <TeacherReq />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-users",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <ManageUsers />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "all-classes-admin",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AllClassesAdmin />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      // common route
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+    ],
+  },
+]);
 
 export default myCreatedRoute;
