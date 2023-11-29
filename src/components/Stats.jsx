@@ -1,8 +1,18 @@
 import { FaUsers } from "react-icons/fa";
 import { MdFlightClass } from "react-icons/md";
 import { FaPeopleRoof } from "react-icons/fa6";
+import useAxiosPublic from "../api/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Stats = () => {
+  const axiosPublic = useAxiosPublic()
+  const { data: stats = [] } = useQuery({
+    queryKey: ['stats'],
+    queryFn: async () => {
+      const res = await axiosPublic('/stats')
+      return res.data;
+    }
+  })
   return (
     <div className="mt-12 px-4">
       <h2 data-aos="fade-up" className="text-4xl font-bold text-center mb-8">
@@ -12,14 +22,14 @@ const Stats = () => {
         <div className="md:w-1/2 mt-6 md:mr-8">
           <div className="bg-gray-100 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-medium mb-4 flex items-center gap-3">
-              <FaUsers /> <span>Total Users: 12</span>
+              <FaUsers /> <span>Total Users: { stats?.users}</span>
             </h2>
             <h2 className="text-2xl font-medium mb-4 flex items-center gap-3">
-              <MdFlightClass /> <span>Total Classes: 55</span>
+              <MdFlightClass /> <span>Total Classes:{stats?.classes}</span>
             </h2>
             <h2 className="text-2xl font-medium mb-4 flex items-center gap-3">
               <FaPeopleRoof />
-              <span>Total Enrollments: 42</span>
+              <span>Total Enrollments:{stats?.bookings}</span>
             </h2>
           </div>
         </div>
