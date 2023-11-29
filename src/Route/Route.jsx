@@ -34,7 +34,8 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: 'all-classes',
-                element: <AllClasses/>
+                element: <AllClasses />,
+                loader:()=>fetch('http://localhost:5000/classes-count')
             },
             {
                 path: '/details/:id',
