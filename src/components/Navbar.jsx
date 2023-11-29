@@ -106,7 +106,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn btn-sm text-white bg-[#332885]">
+            <button data-tip="Login now" className="btn tooltip btn-sm text-white bg-[#332885]">
               Login
             </button>
           </Link>

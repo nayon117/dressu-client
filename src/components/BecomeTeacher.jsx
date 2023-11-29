@@ -21,7 +21,7 @@ const BecomeTeacher = () => {
             students around the world.
           </p>
           <Link to="/teach">
-            <button className="bg-[#332885] hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+            <button data-tip="click to become a teacher" className="bg-[#332885] hover:bg-blue-600 text-white font-semibold py-2 tooltip px-4 rounded">
               Start Teaching Today
             </button>
           </Link>

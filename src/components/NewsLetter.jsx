@@ -31,7 +31,7 @@ const NewsLetter = () => {
                 className="placeholder-gray-600 w-full md:w-1/2 p-4 grid place-items-center border rounded-md focus:outline-none"
                 required
               />
-              <button className="w-full md:w-auto bg-[#332885] text-white px-8 py-4 border rounded-md hover:bg-indigo-700   font-semibold mt-4 md:mt-0  ">
+              <button data-tip="subscribe now" className="w-full md:w-auto bg-[#332885] text-white px-8 py-4 border rounded-md hover:bg-indigo-700 tooltip  font-semibold mt-4 md:mt-0  ">
                 Subscribe
               </button>
             </form>
