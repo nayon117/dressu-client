@@ -20,6 +20,7 @@ import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
 import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
 import CardDetails from "../pages/DetailsPage/CardDetails";
 import MyClassDetails from "../pages/Dashboard/Teacher/MyClassDetails";
+import MyenrollDetails from "../pages/Dashboard/Student/MyenrollDetails";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -76,6 +77,15 @@ const myCreatedRoute = createBrowserRouter([
             <Myenroll />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "my-enroll/:id",
+        element: (
+          <PrivateRoute>
+            <MyenrollDetails />
+          </PrivateRoute>
+        ),
+        
       },
       // teacher route
       {
