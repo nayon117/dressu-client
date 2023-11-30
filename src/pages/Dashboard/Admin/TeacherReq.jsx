@@ -2,11 +2,14 @@
 import { useEffect, useState } from "react";
 import axiosSecure from "../../../api";
 import toast from "react-hot-toast";
+ 
 
 
 const TeacherReq = () => {
   const [pendingRequests, setPendingRequests] = useState([]);
-
+  
+  
+ 
   useEffect(() => {
     const fetchPendingRequests = async () => {
       try {
@@ -25,22 +28,20 @@ const TeacherReq = () => {
   const approveRequest = async (id) => {
     try {
       const { data } = await axiosSecure.put(`/teacher/approve-request/${id}`);
-      if (data.message === "User role updated to teacher") {
+      if (data.message === "Request approved, user role updated to teacher") {
         toast.success("Teacher request approved successfully");
-        // Update the local pendingRequests state to reflect the changes
-        setPendingRequests((prevRequests) =>
-          prevRequests.map((request) =>
-            request._id === id ? { ...request, status: "accepted" } : request
-          )
+        
+        const updatedRequests = pendingRequests.map((request) =>
+          request._id === id ? { ...request, status: "approved" } : request
         );
-      } else {
-        toast.error("Failed to approve teacher request");
+        setPendingRequests(updatedRequests);
       }
     } catch (error) {
       console.error("Error approving request:", error);
       toast.error("Failed to approve teacher request");
     }
   };
+
   return (
     <div className="overflow-x-auto">
     <table className="table">
@@ -54,7 +55,7 @@ const TeacherReq = () => {
           <th>Title</th>
           <th>Category</th>
           <th>status</th>
-          <th>Action</th>
+ 
         </tr>
       </thead>
       <tbody>
@@ -68,10 +69,14 @@ const TeacherReq = () => {
             <td>{request.category}</td>
           
             <td>
-              <button className="btn btn-xs bg-[#332883] text-white"  onClick={()=>approveRequest(request._id)}>{request.status}</button>
+              <button className="btn btn-xs bg-[#332883] text-white" onClick={()=>approveRequest(request._id)} >
+                
+               {request?.status}
+
+              </button>
               
             </td>
-            <td><button className="btn btn-xs bg-[#332883] text-white" >Reject</button></td>
+           
            
           </tr>
         ))}

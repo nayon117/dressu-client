@@ -21,6 +21,7 @@ import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
 import CardDetails from "../pages/DetailsPage/CardDetails";
 import MyClassDetails from "../pages/Dashboard/Teacher/MyClassDetails";
 import MyenrollDetails from "../pages/Dashboard/Student/MyenrollDetails";
+import ReviewDetails from "../pages/Dashboard/Admin/ReviewDetails";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -159,6 +160,16 @@ const myCreatedRoute = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <AllClassesAdmin />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "all-classes-admin/:id",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <ReviewDetails />
             </AdminRoute>
           </PrivateRoute>
         ),

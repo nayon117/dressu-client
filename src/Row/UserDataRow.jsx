@@ -25,8 +25,8 @@ const UserDataRow = ({ user,refetch }) => {
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">{user?.name}</p>
       </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{user?.image}</p>
+      <td className="px-5 py-5  border-b border-gray-200 bg-white text-sm">
+        <p className="text-gray-900 w-52  ">{user?.image}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">{user?.role}</p>

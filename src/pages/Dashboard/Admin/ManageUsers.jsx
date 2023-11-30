@@ -11,7 +11,7 @@ const ManageUsers = () => {
   console.log(users);
   return (
     <div className="overflow-x-auto">
-      <table className="table">
+      <table className="table w-full">
         {/* head */}
         <thead>
           <tr>

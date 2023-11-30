@@ -1,4 +1,6 @@
 import { FaUserCog } from "react-icons/fa";
+import { VscGitPullRequestGoToChanges } from "react-icons/vsc"
+import { MdFlightClass } from "react-icons/md";
 import MenuItem from "./MenuItem";
 
 
@@ -7,7 +9,7 @@ const AdminMenu = () => {
     <>
     
     <MenuItem
-      icon={FaUserCog}
+      icon={VscGitPullRequestGoToChanges }
       label="Teacher Request"
       address="/dashboard/teacher-request"
     />
@@ -17,7 +19,7 @@ const AdminMenu = () => {
       address="/dashboard/manage-users"
     />
     <MenuItem
-      icon={FaUserCog}
+      icon={MdFlightClass }
       label="All Classes"
       address="/dashboard/all-classes-admin"
     />

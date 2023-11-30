@@ -95,12 +95,20 @@ const Myclass = () => {
                 </button>
               </td>
               <td>
-                <Link to={`/dashboard/my-class/${classItem._id}`}>
-                  {" "}
-                  <button className="btn btn-xs bg-[#332883] text-white">
+                {classItem.status === "approved" ? (
+                  <Link to={`/dashboard/my-class/${classItem._id}`}>
+                    <button className="btn btn-xs bg-[#332883] text-white">
+                      see details
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="btn btn-xs bg-[#332883] text-white opacity-50 cursor-not-allowed"
+                  >
                     see details
                   </button>
-                </Link>
+                )}
               </td>
             </tr>
           ))}
