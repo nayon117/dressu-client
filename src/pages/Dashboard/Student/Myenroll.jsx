@@ -7,7 +7,9 @@ const Myenroll = () => {
   const [enrolls, setEnrolls] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?stEmail=${user.email}`)
+    fetch(
+      `https://skillify-server-nine.vercel.app/bookings?stEmail=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setEnrolls(data));
   }, [user?.email]);

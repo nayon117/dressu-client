@@ -36,13 +36,16 @@ const myCreatedRoute = createBrowserRouter([
       {
         path: "all-classes",
         element: <AllClasses />,
-        loader: () => fetch("http://localhost:5000/classes-count"),
+        loader: () =>
+          fetch("https://skillify-server-nine.vercel.app/classes-count"),
       },
       {
         path: "/details/:id",
         element: <CardDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/class-add/${params.id}`),
+          fetch(
+            `https://skillify-server-nine.vercel.app/class-add/${params.id}`
+          ),
       },
       {
         path: "teach",
@@ -86,7 +89,6 @@ const myCreatedRoute = createBrowserRouter([
             <MyenrollDetails />
           </PrivateRoute>
         ),
-        
       },
       // teacher route
       {
@@ -119,7 +121,9 @@ const myCreatedRoute = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/total-enrollment/${params.id}`),
+          fetch(
+            `https://skillify-server-nine.vercel.app/total-enrollment/${params.id}`
+          ),
       },
       {
         path: "UpdateClass/:id",
@@ -131,7 +135,9 @@ const myCreatedRoute = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/class-add/${params.id}`),
+          fetch(
+            `https://skillify-server-nine.vercel.app/class-add/${params.id}`
+          ),
       },
       // admin routes
       {

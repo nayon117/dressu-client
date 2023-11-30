@@ -10,7 +10,9 @@ const Myclass = () => {
   const [myClasses, setMyClasses] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/class-add/requests?email=${user?.email}`)
+    fetch(
+      `https://skillify-server-nine.vercel.app/class-add/requests?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyClasses(data));
   }, [user?.email]);

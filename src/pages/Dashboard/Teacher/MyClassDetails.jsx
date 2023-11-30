@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import EnrollCard from "./EnrollCard";
-import {   useRef  } from "react";
+import { useRef } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import useAxiosPublic from "../../../api/useAxiosPublic";
@@ -8,18 +8,17 @@ import { useQuery } from "@tanstack/react-query";
 
 const MyClassDetails = () => {
   const enrollments = useLoaderData();
-   
-  const dialogRef = useRef(null);
-  const axiosPublic = useAxiosPublic()
 
-  const { data:assignmentCount=0,refetch } = useQuery({
-    queryKey: ['assignmentCount'],
+  const dialogRef = useRef(null);
+  const axiosPublic = useAxiosPublic();
+
+  const { data: assignmentCount = 0, refetch } = useQuery({
+    queryKey: ["assignmentCount"],
     queryFn: async () => {
-      const res = await axiosPublic('/assignments-count')
+      const res = await axiosPublic("/assignments-count");
       return res.data.count;
-    }
-  })
-   
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,14 +33,17 @@ const MyClassDetails = () => {
       deadline,
       description,
     };
- 
+
     axios
-      .post("http://localhost:5000/assignments", assignmentData)
+      .post(
+        "https://skillify-server-nine.vercel.app/assignments",
+        assignmentData
+      )
       .then((res) => {
         console.log("Response data:", res.data);
         if (res.data.acknowledged === true) {
           toast.success("Assignment created successfully");
-          refetch()
+          refetch();
         } else {
           toast.error("Failed");
         }
@@ -109,7 +111,10 @@ const MyClassDetails = () => {
                 name="description"
               />
 
-              <button type="submit" className="btn bg-[#332883] text-white hover:bg-white hover:text-[#332883] block mx-auto  ">
+              <button
+                type="submit"
+                className="btn bg-[#332883] text-white hover:bg-white hover:text-[#332883] block mx-auto  "
+              >
                 create
               </button>
             </form>

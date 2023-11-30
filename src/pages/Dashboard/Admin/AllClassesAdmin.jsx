@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { TbProgressBolt } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
-
 const AllClassesAdmin = () => {
   const [classData, setClassData] = useState([]);
 
@@ -44,10 +43,9 @@ const AllClassesAdmin = () => {
       setClassData((prevData) =>
         prevData.filter((classItem) => classItem._id !== id)
       );
-      toast.error('Class rejected successfully');
+      toast.error("Class rejected successfully");
     }
   };
-  
 
   return (
     <div className="overflow-x-auto">
@@ -88,16 +86,18 @@ const AllClassesAdmin = () => {
                 </button>
               </td>
               <td className=" flex items-center justify-center">
-              {classItem.status === 'approved' ? (
-    <Link to={`/dashboard/all-classes-admin/${classItem._id}`}>
-      <TbProgressBolt className="text-xl" />
-    </Link>
-  ) : (
-    <button disabled className="text-xl opacity-50 cursor-not-allowed">
-      <TbProgressBolt />
-    </button>
-  )}
-
+                {classItem.status === "approved" ? (
+                  <Link to={`/dashboard/all-classes-admin/${classItem._id}`}>
+                    <TbProgressBolt className="text-xl" />
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="text-xl opacity-50 cursor-not-allowed"
+                  >
+                    <TbProgressBolt />
+                  </button>
+                )}
               </td>
             </tr>
           ))}

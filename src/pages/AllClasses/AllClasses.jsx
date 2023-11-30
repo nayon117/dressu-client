@@ -15,7 +15,7 @@ const AllClasses = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/class-add/approved?page=${currentPage}&size=${itemsPerPage}`
+      `https://skillify-server-nine.vercel.app/class-add/approved?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => setApprovedClasses(data));
