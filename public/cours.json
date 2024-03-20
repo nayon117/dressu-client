@@ -1,0 +1,418 @@
+
+_id
+65b50137ce4b4bd9f088e7a0
+title
+"Math Fundamentals"
+details
+"Master foundational principles of math for a solid understanding."
+image
+"https://i.ibb.co/t8GtKzs/math.jpg"
+category
+"popular"
+price
+19.99
+name
+"John Smith"
+email
+"john.smith@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a1
+title
+"Programming Basics"
+details
+"Learn essential programming concepts to start your journey."
+image
+"https://i.ibb.co/YTKKYRs/programming.jpg"
+category
+"popular"
+price
+24.99
+name
+"Emily Johnson"
+email
+"emily.johnson@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a2
+title
+"English Mastery"
+details
+"Polish your grammar skills to enhance communication abilities."
+image
+"https://i.ibb.co/JCrYXjM/english.jpg"
+category
+"popular"
+price
+17.99
+name
+"David Miller"
+email
+"david.miller@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a3
+title
+"Science Explorations"
+details
+"Embark on a journey of scientific discovery with hands-on experiments."
+image
+"https://i.ibb.co/qMrbx8Z/science.jpg"
+category
+"popular"
+price
+29.99
+name
+"Sarah Davis"
+email
+"sarah.davis@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a4
+title
+"Marketing Essentials"
+details
+"Unlock secrets of effective digital marketing to boost online presence…"
+image
+"https://i.ibb.co/TW1cT1G/marketing.webp"
+category
+"popular"
+price
+22.99
+name
+"Michael Brown"
+email
+"michael.brown@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a5
+title
+"Creativity Workshop"
+details
+"Unleash creativity through artistic expression and innovative projects…"
+image
+"https://i.ibb.co/8DS6Q3v/art.jpg"
+category
+"popular"
+price
+26.99
+name
+"Sophia Johnson"
+email
+"sophia.johnson@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a6
+title
+"CodeCraft Pro"
+details
+"Premium quality with advanced features for coding enthusiasts."
+image
+"https://codecraft.tv/assets/images/site/featured-image.png"
+category
+"programming"
+price
+99.99
+name
+"Alex Turner"
+email
+"alex.turner@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a7
+title
+"ElectroTech Toolkit"
+details
+"Sleek design for modern electrical engineering projects."
+image
+"https://i.ebayimg.com/images/g/V9wAAOxyrM5TGmum/s-l640.jpg"
+category
+"engineering"
+price
+59.99
+name
+"Jessica White"
+email
+"jessica.white@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a8
+title
+"Business strategy"
+details
+"Efficient and easy-to-use tools for business."
+image
+"https://i.ibb.co/QnkDM3G/startae-team-7t-XA8xwe4-W4-unsplash.jpg"
+category
+"business"
+price
+39.99
+name
+"Brian Johnson"
+email
+"brian.johnson@gmail.com"
+_id
+65b50137ce4b4bd9f088e7a9
+title
+"Law of equity"
+details
+"Compact and lightweight solution for law professionals on-the-go."
+image
+"https://i1.sndcdn.com/artworks-sd6LZPBwdW9WcfYu-q9KDOw-t500x500.jpg"
+category
+"law"
+price
+79.99
+name
+"Rachel Turner"
+email
+"rachel.turner@gmail.com"
+_id
+65b50137ce4b4bd9f088e7aa
+title
+"PhysicsLab Explorer"
+details
+"Elegant design with versatile functionality for physics experiments."
+image
+"https://i.ibb.co/Nt6mMk0/dan-cristian-padure-h3kuh-YUCE9-A-unsplash.jp…"
+category
+"physics"
+price
+69.99
+name
+"Daniel White"
+email
+"daniel.white@gmail.com"
+_id
+65b50137ce4b4bd9f088e7ab
+title
+"Green chemistry"
+details
+"Perfect for any chemistry laboratory, a great choice for chemists."
+image
+"https://i.pinimg.com/564x/94/1c/c5/941cc53200081f593f4fbf6dee826740.jp…"
+category
+"chemistry"
+price
+49.99
+name
+"Emma Davis"
+email
+"emma.davis@gmail.com"
+_id
+65b50137ce4b4bd9f088e7ac
+title
+"C++"
+details
+"Object-oriented programming language to enhance your skills."
+image
+"https://miro.medium.com/v2/da:true/resize:fit:1200/0*ZpjhBs0gR5oSd3Il"
+category
+"programming"
+price
+119.99
+name
+"Matthew Brown"
+email
+"matthew.brown@gmail.com"
+_id
+65b50137ce4b4bd9f088e7ad
+title
+"Resource management"
+details
+"Learn managing an organization."
+image
+"https://nextinnovationasia.com/blog/wp-content/uploads/2022/06/functio…"
+category
+"business"
+price
+89.99
+name
+"Olivia Johnson"
+email
+"olivia.johnson@gmail.com"
+_id
+65b50137ce4b4bd9f088e7ae
+title
+"Analog electronics"
+details
+"Enhance your home with this elegant collection."
+image
+"https://i.ibb.co/KDHZ4VP/mario-calvo-YOT6k-S8-Yt-EA-unsplash.jpg"
+category
+"engineering"
+price
+59.99
+name
+"William Smith"
+email
+"william.smith@gmail.com"
+_id
+65b50137ce4b4bd9f088e7af
+title
+"Web development"
+details
+"Smart and intuitive, simplifying your coding tasks."
+image
+"https://www.creativeitinstitute.com/images/course/course_1663052056.jp…"
+category
+"programming"
+price
+129.99
+name
+"Isabella Johnson"
+email
+"isabella.johnson@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b0
+title
+"Business mathematics"
+details
+"Comfortable and stylish for everyday wear."
+image
+"https://cdn.educba.com/academy/wp-content/uploads/2015/01/Business-Mat…"
+category
+"business"
+price
+79.99
+name
+"Christopher Turner"
+email
+"christopher.turner@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b1
+title
+"Digital electronic"
+details
+"Create a cozy atmosphere with this essential item."
+image
+"https://static.javatpoint.com/tutorial/digital-electronics/images/digi…"
+category
+"engineering"
+price
+44.99
+name
+"Ava Davis"
+email
+"ava.davis@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b2
+title
+"Automata"
+details
+"Stay connected with the latest technology."
+image
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1NGfbrK_MQEqhI9…"
+category
+"programming"
+price
+109.99
+name
+"Ethan Turner"
+email
+"ethan.turner@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b3
+title
+"Trendsetter Accessory"
+details
+"Chic and trendy, a must-have for fashion enthusiasts."
+image
+"https://i.ibb.co/YPPCN0p/ha-nguy-n-Fs-VVCYcg-XG8-unsplash.jpg"
+category
+"business"
+price
+69.99
+name
+"Madison Johnson"
+email
+"madison.johnson@gmail.com"
+
+_id
+65b50137ce4b4bd9f088e7b4
+title
+"Electronicmagnetic field"
+details
+"Organize your space with this practical solution."
+image
+"https://intellizpress.com/image/cache/catalog/9781682516300-800x1000.j…"
+category
+"engineering"
+price
+54.99
+name
+"James White"
+email
+"james.white@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b5
+title
+"Network analysis"
+details
+"Experience the ultimate in audio quality."
+image
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Hp-x3sbvdroI-8…"
+category
+"programming"
+price
+149.99
+name
+"Lily Davis"
+email
+"lily.davis@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b6
+title
+"Principle of marketing"
+details
+"Timeless elegance for any occasion."
+image
+"https://i.ibb.co/DGj9tXS/melanie-deziel-U33f-Hry-BYBU-unsplash.jpg"
+category
+"business"
+price
+99.99
+name
+"Logan Turner"
+email
+"logan.turner@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b7
+title
+"Power electronics"
+details
+"Transform your living space with this statement piece."
+image
+"https://zephyrproject.org/wp-content/uploads/sites/38/2021/06/767_medi…"
+category
+"engineering"
+price
+79.99
+name
+"Chloe Davis"
+email
+"chloe.davis@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b8
+title
+"Electronic engineering"
+details
+"Innovative design meets practical functionality."
+image
+"https://www.cheggindia.com/wp-content/uploads/2023/08/ece-full-form-1.…"
+category
+"programming"
+price
+119.99
+name
+"Noah Johnson"
+email
+"noah.johnson@gmail.com"
+_id
+65b50137ce4b4bd9f088e7b9
+title
+"Constitutional law"
+details
+"Stay on trend with this fashionable accessory."
+image
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ewmOFTFnegXlwJ…"
+category
+"law"
+price
+69.99
+name
+"Aiden Turner"
+email
+"aiden.turner@gmail.com"
