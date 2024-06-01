@@ -59,16 +59,15 @@ const Login = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center md:w-1/2  ">
           <Lottie
               className="w-2/3"
-              loop={false}
               animationData={loginImg }
             ></Lottie>
           </div>
-          <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl ">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -79,7 +78,7 @@ const Login = () => {
                   name="email"
                   {...register("email", { required: true })}
                   placeholder="email"
-                  className="input input-bordered"
+                  className="p-3 rounded-md bg-third outline-none border-none"
                 />
                 {errors.email && (
                   <span className="text-red-500">This field is required</span>
@@ -97,7 +96,7 @@ const Login = () => {
                     required: true,
                   })}
                   placeholder="password"
-                  className="input input-bordered"
+                  className="p-3 rounded-md bg-third outline-none border-none"
                 />
                 {errors.password?.type === "required" && (
                   <span className="text-red-500">This field is required</span>
@@ -113,7 +112,7 @@ const Login = () => {
               <div className="mt-3">
             <button
               type="submit"
-              className="bg-[#332885] w-full  btn text-white"
+              className="bg-first w-full  btn text-white hover:bg-white hover:text-first"
             >
               {loading ? (
                 <TbFidgetSpinner className="animate-spin m-auto"></TbFidgetSpinner>
@@ -125,7 +124,7 @@ const Login = () => {
             </form>
             <div
               onClick={handleGoogleLogin}
-              className="  btn bg-white mx-8  p-1  "
+              className="  btn bg-white mx-8  p-1 hover:bg-white hover:text-first  "
             >
               <FcGoogle size={32} />
 
@@ -133,7 +132,7 @@ const Login = () => {
             </div>
             <p className="text-center py-2 mb-3">
               Already have an account ?
-              <Link className="text-[#332885] ml-1" to="/register">
+              <Link className="text-second ml-1" to="/register">
                 Sign up
               </Link>
             </p>

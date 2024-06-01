@@ -72,7 +72,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center md:w-1/2  ">
             <Lottie
@@ -81,7 +81,7 @@ const Register = () => {
               animationData={registrationImg}
             ></Lottie>
           </div>
-          <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full md:w-1/2 max-w-sm shadow-2xl ">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -92,7 +92,7 @@ const Register = () => {
                   name="name"
                   {...register("name", { required: true })}
                   placeholder="Your Name "
-                  className="input input-bordered"
+                  className="p-3 rounded-md bg-third outline-none border-none"
                 />
                 {errors.name && (
                   <span className="text-red-500">Name is required</span>
@@ -123,7 +123,7 @@ const Register = () => {
                   name="email"
                   {...register("email", { required: true })}
                   placeholder="email"
-                  className="input input-bordered"
+                  className="p-3 rounded-md bg-third outline-none border-none"
                 />
                 {errors.email && (
                   <span className="text-red-500"> Email is required</span>
@@ -141,7 +141,7 @@ const Register = () => {
                     required: true,
                   })}
                   placeholder="password"
-                  className="input input-bordered"
+                  className="p-3 rounded-md bg-third outline-none border-none"
                 />
                 {errors.password?.type === "required" && (
                   <span className="text-red-500"> password is required</span>
@@ -156,7 +156,7 @@ const Register = () => {
               <div className="mt-2">
                 <button
                   type="submit"
-                  className="bg-[#332885] btn w-full rounded-md py-2 text-white"
+                  className="bg-first btn w-full rounded-md py-2 text-white hover:bg-white hover:text-first"
                 >
                   {loading ? (
                     <TbFidgetSpinner className="animate-spin m-auto"></TbFidgetSpinner>
@@ -168,7 +168,7 @@ const Register = () => {
             </form>
             <div
               onClick={handleGoogleLogin}
-              className="  btn bg-white mx-8  mb-4   "
+              className="  btn bg-white mx-8  mb-4 hover:bg-white hover:text-first  "
             >
               <FcGoogle size={32} />
 
@@ -176,7 +176,7 @@ const Register = () => {
             </div>
             <p className="text-center  mb-3    ">
               Already have an account ?
-              <Link className="text-[#332885] ml-1" to="/login">
+              <Link className="text-second ml-1" to="/login">
                 Login
               </Link>
             </p>

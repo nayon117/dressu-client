@@ -16,7 +16,7 @@ const ApprovedCard = ({ approved }) => {
         <h2 className="card-title">price:$ {price}</h2>
         <p>{details}</p>
         <div className="card-actions justify-end">
-         <Link to={`/details/${_id}`}> <button data-tip="enroll" className="btn tooltip bg-[#332883]  hover:bg-white hover:text-[#332883]">Enroll Now</button></Link>
+         <Link to={`/details/${_id}`}> <button data-tip="enroll" className="btn tooltip bg-first text-white  hover:bg-white hover:text-first">Enroll Now</button></Link>
         </div>
       </div>
     </div>
