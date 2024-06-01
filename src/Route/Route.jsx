@@ -3,7 +3,6 @@ import MainLayout from "../layout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import AllClasses from "../pages/AllClasses/AllClasses";
-import Teach from "../pages/Teach/Teach";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
@@ -14,7 +13,6 @@ import AddClass from "../pages/Dashboard/Teacher/AddClass";
 import TeacherReq from "../pages/Dashboard/Admin/TeacherReq";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import Profile from "../pages/Dashboard/Common/Profile";
-import TeacherRoute from "./TeacherRoute";
 import AdminRoute from "./AdminRoute";
 import AllClassesAdmin from "../pages/Dashboard/Admin/AllClassesAdmin";
 import UpdateClass from "../pages/Dashboard/Teacher/UpdateClass";
@@ -22,6 +20,8 @@ import CardDetails from "../pages/DetailsPage/CardDetails";
 import MyClassDetails from "../pages/Dashboard/Teacher/MyClassDetails";
 import MyenrollDetails from "../pages/Dashboard/Student/MyenrollDetails";
 import ReviewDetails from "../pages/Dashboard/Admin/ReviewDetails";
+import Contact from "../pages/contact/Contact";
+import Blog from "../pages/blog/Blog";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -45,13 +45,13 @@ const myCreatedRoute = createBrowserRouter([
           fetch(`http://localhost:5000/class-add/${params.id}`),
       },
       {
-        path: "teach",
-        element: (
-          <PrivateRoute>
-            <Teach />
-          </PrivateRoute>
-        ),
+        path: "blog",
+        element:<Blog/>
       },
+      {
+        path: "contact",
+        element: <Contact/>,
+      }
     ],
   },
   {
@@ -92,9 +92,9 @@ const myCreatedRoute = createBrowserRouter([
         path: "add-class",
         element: (
           <PrivateRoute>
-            <TeacherRoute>
+       
               <AddClass />
-            </TeacherRoute>
+            
           </PrivateRoute>
         ),
       },
@@ -102,9 +102,9 @@ const myCreatedRoute = createBrowserRouter([
         path: "my-class",
         element: (
           <PrivateRoute>
-            <TeacherRoute>
+         
               <Myclass />
-            </TeacherRoute>
+         
           </PrivateRoute>
         ),
       },
@@ -112,9 +112,9 @@ const myCreatedRoute = createBrowserRouter([
         path: "my-class/:id",
         element: (
           <PrivateRoute>
-            <TeacherRoute>
+      
               <MyClassDetails />
-            </TeacherRoute>
+     
           </PrivateRoute>
         ),
         loader: ({ params }) =>
@@ -124,9 +124,9 @@ const myCreatedRoute = createBrowserRouter([
         path: "UpdateClass/:id",
         element: (
           <PrivateRoute>
-            <TeacherRoute>
+          
               <UpdateClass />
-            </TeacherRoute>
+          
           </PrivateRoute>
         ),
         loader: ({ params }) =>

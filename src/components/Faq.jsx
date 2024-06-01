@@ -4,7 +4,7 @@ const Faq = () => {
       <h2 className="text-center text-4xl font-bold">
         Frequently asked questions
       </h2>
-      <div className="collapse collapse-arrow bg-base-200 mt-12">
+      <div className="collapse collapse-arrow  mt-12">
         <input type="radio" name="my-accordion-2" defaultChecked="checked" />
         <div className="collapse-title text-xl font-medium">
           What subjects or courses are available on your platform?
@@ -18,7 +18,7 @@ const Faq = () => {
           </p>
         </div>
       </div>
-      <div className="collapse my-6 collapse-arrow bg-base-200">
+      <div className="collapse my-6 collapse-arrow ">
         <input type="radio" name="my-accordion-2" />
         <div className="collapse-title text-xl font-medium">
           How can I enroll in a course?
@@ -31,7 +31,7 @@ const Faq = () => {
           </p>
         </div>
       </div>
-      <div className="collapse collapse-arrow bg-base-200">
+      <div className="collapse collapse-arrow ">
         <input type="radio" name="my-accordion-2" />
         <div className="collapse-title text-xl font-medium">
           Are there any prerequisites for taking courses on your platform?

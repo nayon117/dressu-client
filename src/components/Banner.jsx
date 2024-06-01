@@ -12,7 +12,7 @@ const Banner = () => {
   })
 
   return (
-    <Carousel className="section-container">
+    <Carousel >
       <div className="relative ">
         <img
           className="max-h-[550px] hero-overlay opacity-30 rounded-md"

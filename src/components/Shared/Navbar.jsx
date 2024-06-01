@@ -8,7 +8,7 @@ const Navbar = () => {
         <NavLink
           to="/ "
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-[#332885] text-white" : ""
+            isPending ? "pending" : isActive ? "bg-first text-white" : ""
           }
         >
           Home
@@ -18,20 +18,30 @@ const Navbar = () => {
         <NavLink
           to="/all-classes"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-[#332885] text-white" : ""
+            isPending ? "pending" : isActive ? "bg-first text-white" : ""
           }
         >
-          All Classes
+          Shop
         </NavLink>
       </li>
       <li className="font-medium text-base">
         <NavLink
-          to="/teach "
+          to="/blog"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-[#332885] text-white" : ""
+            isPending ? "pending" : isActive ? "bg-first text-white" : ""
           }
         >
-          Teach On Skillify
+          Blog
+        </NavLink>
+      </li>
+      <li className=" font-medium text-base">
+        <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "bg-first text-white" : ""
+          }
+        >
+          Contact
         </NavLink>
       </li>
     </>
@@ -41,7 +51,7 @@ const Navbar = () => {
   const { user, logOut } = useAuth() || {};
 
   return (
-    <div className="navbar py-4 section-container ">
+    <div className="navbar bg-third py-4 section-container ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -68,7 +78,11 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="font-bold flex    ">
-         ecommerce
+          <img
+            src="../../../public/images/logo.png"
+            alt="logo"
+            className="h-12 w-12"
+          />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -84,7 +98,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box z-50 w-52"
+              className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-white rounded-box z-50 w-52"
             >
               <li>
                 <button className="btn  btn-sm whitespace-nowrap  btn-ghost">
@@ -111,7 +125,7 @@ const Navbar = () => {
           <Link to="/login">
             <button
               data-tip="Login now"
-              className="btn tooltip btn-sm text-white bg-[#332885]"
+              className="btn tooltip btn-sm text-white bg-first outline-none border-none"
             >
               Login
             </button>
