@@ -12,8 +12,8 @@ const Banner = () => {
   })
 
   return (
-    <Carousel>
-      <div className="relative">
+    <Carousel className="section-container">
+      <div className="relative ">
         <img
           className="max-h-[550px] hero-overlay opacity-30 rounded-md"
           src="https://i.ibb.co/L06TySB/marvin-meyer-SYTO3xs06f-U-unsplash-min.jpg"

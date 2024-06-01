@@ -35,10 +35,7 @@ const MyClassDetails = () => {
     };
 
     axios
-      .post(
-        "https://skillify-server-nine.vercel.app/assignments",
-        assignmentData
-      )
+      .post("http://localhost:5000/assignments", assignmentData)
       .then((res) => {
         console.log("Response data:", res.data);
         if (res.data.acknowledged === true) {

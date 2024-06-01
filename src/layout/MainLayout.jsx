@@ -1,21 +1,17 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Container from "../components/Shared/Container";
-import Footer from "../components/Footer";
+import Navbar from "../components/Shared/Navbar";
+import Footer from "../components/Shared/Footer";
 
 const MainLayout = () => {
   return (
     <div>
-      <Container>
-        <Navbar />
-      </Container>
+      <Navbar />
 
-      <Container>
-        <div className="min-h-screen">
+      <div className="section-container min-h-screen">
         <Outlet></Outlet>
       </div>
-      </Container>
-      <Footer/>
+
+      <Footer />
     </div>
   );
 };
