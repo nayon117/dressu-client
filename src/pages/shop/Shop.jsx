@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import ApprovedCard from "./ApprovedCard";
 import { useLoaderData } from "react-router-dom";
+import Card from "../../components/Shared/Card";
 
-const AllClasses = () => {
+const Shop = () => {
   const [approvedClasses, setApprovedClasses] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
@@ -54,22 +54,22 @@ const AllClasses = () => {
         <input
           type="text"
           placeholder="search here ..."
-          className="input input-bordered   block mx-auto
-        w-full max-w-xs"
+          className="outline-none p-3 rounded-md border-none bg-third   block mx-auto
+        w-full max-w-md"
           onChange={handleSearchChange}
           value={searchQuery}
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredApproved?.map((approved) => (
-          <ApprovedCard key={approved._id} approved={approved}></ApprovedCard>
+          <Card key={approved._id} approved={approved}></Card>
         ))}
       </div>
 
       <div className="flex mt-12 items-center justify-center">
         <button
           onClick={handlePrevPage}
-          className="btn mx-2 btn-sm bg-[#332883] hover:bg-white hover:text-[#332883] text-white"
+          className="btn mx-2 btn-sm bg-first hover:bg-white hover:text-first text-white"
         >
           Prev
         </button>
@@ -77,21 +77,21 @@ const AllClasses = () => {
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
-            className="btn mr-2 btn-sm bg-[#332883] hover:bg-white hover:text-[#332883] text-white focus:bg-red-500"
+            className="btn mr-2 btn-sm bg-second hover:bg-white hover:text-second text-white focus:bg-red-500"
           >
             {page}
           </button>
         ))}
         <button
           onClick={handleNextPage}
-          className="btn mx-2 btn-sm bg-[#332883] hover:bg-white hover:text-[#332883] text-white"
+          className="btn mx-2 btn-sm bg-first hover:bg-white hover:text-first text-white"
         >
           Next
         </button>
         <select
           onChange={handleItemsPerPage}
           value={itemsPerPage}
-          className="btn mr-2 btn-sm bg-[#332883] text-white outline-none hover:bg-white hover:text-[#332883]"
+          className="btn mr-2 btn-sm bg-second text-white outline-none hover:bg-white hover:text-second"
         >
           <option value="5">5</option>
           <option value="10">10</option>
@@ -100,4 +100,4 @@ const AllClasses = () => {
     </div>
   );
 };
-export default AllClasses;
+export default Shop;

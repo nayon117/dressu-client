@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
-import AllClasses from "../pages/AllClasses/AllClasses";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
@@ -22,6 +21,7 @@ import MyenrollDetails from "../pages/Dashboard/Student/MyenrollDetails";
 import ReviewDetails from "../pages/Dashboard/Admin/ReviewDetails";
 import Contact from "../pages/contact/Contact";
 import Blog from "../pages/blog/Blog";
+import Shop from "../pages/shop/Shop";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -34,8 +34,8 @@ const myCreatedRoute = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "all-classes",
-        element: <AllClasses />,
+        path: "shop",
+        element: <Shop />,
         loader: () => fetch("http://localhost:5000/classes-count"),
       },
       {
