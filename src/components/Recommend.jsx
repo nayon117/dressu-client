@@ -15,7 +15,7 @@ const Recommend = () => {
   return (
     <div>
       <div className="mt-12">
-        <h2 className="text-4xl font-bold text-center">Recommend Courses</h2>
+        <h2 className="title text-center">Latest Arrivals</h2>
       </div>
       <div  data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
