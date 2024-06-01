@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Dialog, Listbox, Transition } from "@headlessui/react";
 import { BsCheckLg } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
-const roles = ["student", "teacher", "admin"];
+const roles = ["user", "admin"];
 
 const UpdateUserModal = ({ setIsOpen, isOpen, modalHandler, user }) => {
   const [selected, setSelected] = useState(user.role);

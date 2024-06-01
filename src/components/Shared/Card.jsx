@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ approved }) => {
-  const { _id, title, image, name, price, details } = approved || {};
+const Card = ({ item }) => {
+
   return (
     <div
       data-aos="flip-left"
@@ -10,15 +10,15 @@ const Card = ({ approved }) => {
       className="card card-compact mt-16 shadow-xl"
     >
       <figure>
-        <img src={image} alt="course image" />
+        <img src={item?.image} alt="course image" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <h2 className="card-title">Author: {name}</h2>
-        <h2 className="card-title">price:$ {price}</h2>
-        <p>{details}</p>
+        <h2 className="card-title">{item?.name}</h2>
+        <h2 className="card-title">{item?.brand}</h2>
+        <h2 className="card-title">price:$ {item?.price}</h2>
+        <p>{item?.short_details}</p>
         <div className="card-actions justify-end">
-          <Link to={`/details/${_id}`}>
+          <Link to={`/details/${item?._id}`}>
             {" "}
             <button
               data-tip="enroll"

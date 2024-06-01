@@ -7,7 +7,7 @@ const LatestProduct = () => {
   const { data: recommends = [] } = useQuery({
     queryKey: ["recommended"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/recommended-classes");
+      const res = await axiosPublic.get("/latest-products");
       return res.data;
     },
   });
@@ -18,8 +18,8 @@ const LatestProduct = () => {
         <h2 className="title text-center">Latest Arrivals</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {recommends?.map((approved) => (
-          <Card key={approved._id} approved={approved}></Card>
+        {recommends?.map((item) => (
+          <Card key={item._id} item={item}></Card>
         ))}
       </div>
     </div>

@@ -1,7 +1,8 @@
 import { FaUserCog } from "react-icons/fa";
-import { VscGitPullRequestGoToChanges } from "react-icons/vsc"
 import { MdFlightClass } from "react-icons/md";
 import MenuItem from "./MenuItem";
+import { BsFillHouseAddFill } from "react-icons/bs";
+import { MdHomeWork } from "react-icons/md";
 
 
 const AdminMenu = () => {
@@ -9,10 +10,14 @@ const AdminMenu = () => {
     <>
     
     <MenuItem
-      icon={VscGitPullRequestGoToChanges }
-      label="Teacher Request"
-      address="/dashboard/teacher-request"
+     icon={BsFillHouseAddFill}
+      label="Add Product"
+      address="/dashboard/add-product"
     />
+     <MenuItem icon={MdHomeWork} 
+     label="My Product" 
+     address="/dashboard/my-product"
+      />
     <MenuItem
       icon={FaUserCog}
       label="Manage Users"
@@ -20,8 +25,8 @@ const AdminMenu = () => {
     />
     <MenuItem
       icon={MdFlightClass }
-      label="All Classes"
-      address="/dashboard/all-classes-admin"
+      label="Add Blog"
+      address="/dashboard/add-blog"
     />
   </>
   );

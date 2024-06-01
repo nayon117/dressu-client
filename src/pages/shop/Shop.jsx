@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Card from "../../components/Shared/Card";
 
 const Shop = () => {
-  const [approvedClasses, setApprovedClasses] = useState([]);
+  const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -15,18 +15,18 @@ const Shop = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/class-add/approved?page=${currentPage}&size=${itemsPerPage}`
+      `http://localhost:5000/products?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())
-      .then((data) => setApprovedClasses(data));
+      .then((data) => setProducts(data));
   }, [currentPage, itemsPerPage]);
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
   // Filter  approved class based on the search query
-  const filteredApproved = approvedClasses.filter((approves) =>
-    approves.title.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredApproved = products.filter((approves) =>
+    approves.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleItemsPerPage = (e) => {
@@ -61,8 +61,8 @@ const Shop = () => {
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredApproved?.map((approved) => (
-          <Card key={approved._id} approved={approved}></Card>
+        {filteredApproved?.map((item) => (
+          <Card key={item._id} item={item}></Card>
         ))}
       </div>
 

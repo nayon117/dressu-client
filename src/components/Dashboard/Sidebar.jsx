@@ -2,15 +2,12 @@
 import { useState } from "react";
 // Components
 import MenuItem from "./MenuItem";
-import ToggleBtn from "../ ./../../components/Button/ToggleBtn";
 // Icons
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AiOutlineBars } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
 import Logo from "../Shared/Logo";
 import StudentMenu from "./StudentMenu";
-import TeacherMenu from "./TeacherMenu";
 import AdminMenu from "./AdminMenu";
 import { FaHome } from "react-icons/fa";
 import useRole from "../../hooks/useRole";
@@ -18,16 +15,13 @@ import useAuth from "../../hooks/useAuth";
 
 
 const Sidebar = () => {
-  const [toggle, setToggle] = useState(false);
   const [isActive, setActive] = useState(false);
   const [role] = useRole()
   const {logOut} = useAuth()
    
 
   //   For student/teacher menu item toggle button
-  const toggleHandler = (event) => {
-    setToggle(event.target.checked);
-  };
+
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -65,14 +59,13 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             {/* If a user is teacher */}
-          {role==='teacher' && <ToggleBtn toggleHandler={toggleHandler} />}
+         
             <nav>
               
 
               {/* Menu Items */}
                
             {role==='student' && <StudentMenu/>}
-            {role==='teacher' ? toggle? <TeacherMenu/> : <StudentMenu/>:''}
             {role==='admin' && <AdminMenu/>}
             </nav>
           </div>

@@ -39,7 +39,7 @@ const UserDataRow = ({ user,refetch }) => {
         <span onClick={()=>setIsOpen(true)} className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-white leading-tight">
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-[#332885]  opacity-80 rounded-full"
+            className="absolute inset-0 bg-first  opacity-80 rounded-full"
           ></span>
           <span className="relative">Update Role</span>
         </span>
