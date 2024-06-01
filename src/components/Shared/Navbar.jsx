@@ -77,13 +77,12 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="font-bold flex    ">
-          <img
-            src="../../../public/images/logo.png"
-            alt="logo"
-            className="h-12 w-12"
-          />
-        </a>
+        <Link to='/' className="font-bold flex    ">
+        <div className="flex items-center">
+    <img src="/images/logo.png" alt="logo" className="h-16 w-16" />
+    <span className="title -ml-3">ressU</span>
+    </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>

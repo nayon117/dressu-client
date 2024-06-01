@@ -14,8 +14,8 @@ const NewsLetter = () => {
       <div className="mx-4 md:mx-12 py-8 md:py-12 grid place-content-center px-4 md:px-0">
         <div className="lg:flex justify-start lg:gap-28">
           <div >
-            <h1 data-aos="fade-up" className="font-bold text-5xl ">Newsletter</h1>
-            <p className="pt-8 md:pt-4 text-gray-600">
+            <h1 data-aos="fade-up" className="title">Newsletter</h1>
+            <p className="pt-8 md:pt-4 subtitle">
               Sign up for our newsletter and get weekly updates. We only send
               emails about our latest products on the market once a week every
               Friday.
@@ -31,7 +31,7 @@ const NewsLetter = () => {
                 className=" w-full md:w-1/2 p-4 grid place-items-center bg-white border rounded-md focus:outline-none"
                 required
               />
-              <button data-tip="subscribe now" className="w-full md:w-auto bg-first text-white px-8 py-4 border rounded-md hover:bg-indigo-700 tooltip  font-semibold mt-4 md:mt-0  ">
+              <button data-tip="subscribe now" className="w-full md:w-auto bg-first text-white px-8 py-4 border rounded-md hover:bg-second tooltip  font-semibold mt-4 md:mt-0  ">
                 Subscribe
               </button>
             </form>

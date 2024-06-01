@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const ApprovedCard = ({ approved }) => {
      const {_id,title,image ,name,price,details} = approved || {}
   return (
-    <div className="card card-compact mt-16 shadow-xl">
+    <div data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="1500" className="card card-compact mt-16 shadow-xl">
       <figure>
         <img
           src={image}
