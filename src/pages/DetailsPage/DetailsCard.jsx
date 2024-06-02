@@ -2,13 +2,20 @@ import { useEffect, useState } from "react";
 import DetailModal from "../../components/Modal/DetailModal";
 import useAuth from "../../hooks/useAuth";
 import Loader from "../../components/Shared/Loader";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../api/useAxiosPublic";
+import useCart from "../../hooks/useCart";
+import { useNavigate } from "react-router-dom";
 
 const DetailsCard = ({ detailInfo }) => {
-  const { name, image, price, long_details, brand, category,short_details,size } =
+  const {_id, name, image, price, long_details, brand, category,short_details,size } =
     detailInfo || {};
   const [isOpen, setIsOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
   const { user } = useAuth();
+  const axiosPublic = useAxiosPublic()
+  const [,refetch] = useCart()
+  const navigate = useNavigate()
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -42,6 +49,56 @@ const DetailsCard = ({ detailInfo }) => {
       </div>
     );
   }
+
+
+  const handleAddToCart =()=> {
+   
+    if (user && user.email) {
+      // send to database
+      const cartItem = {
+        menuId: _id,
+        email: user.email,
+        name,
+        image,
+        price,
+        size,
+        brand,
+        category
+      }
+      axiosPublic.post('/carts', cartItem)
+        .then(res => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${name} added to your successfully`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+            // refetch cart to update the cart items count 
+            refetch()
+          }
+      })
+    }
+    else {
+      Swal.fire({
+        title: "You are not logged in?",
+        text: "Please log in to add to the cart!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log In!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // send the user to login page
+          navigate('/login',{state:{from:location}})
+        }
+      });
+    }
+  }
+
   return (
     <div className="font-sans bg-white">
       <div className="p-6 lg:max-w-7xl max-w-4xl mx-auto">
@@ -160,6 +217,7 @@ const DetailsCard = ({ detailInfo }) => {
               closeModal={closeModal}
               />
               <button
+                onClick={handleAddToCart}
                 type="button"
                 className="min-w-[200px] px-4 py-2.5 border border-[#333] bg-transparent hover:bg-gray-50 text-[#333] text-sm font-semibold rounded"
               >

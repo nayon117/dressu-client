@@ -7,11 +7,11 @@ import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AiOutlineBars } from "react-icons/ai";
 import Logo from "../Shared/Logo";
-import StudentMenu from "./StudentMenu";
 import AdminMenu from "./AdminMenu";
 import { FaHome } from "react-icons/fa";
 import useRole from "../../hooks/useRole";
 import useAuth from "../../hooks/useAuth";
+import UserMenu from "./UserMenu";
 
 
 const Sidebar = () => {
@@ -65,7 +65,7 @@ const Sidebar = () => {
 
               {/* Menu Items */}
                
-            {role==='student' && <StudentMenu/>}
+            {role==='user' && <UserMenu/>}
             {role==='admin' && <AdminMenu/>}
             </nav>
           </div>

@@ -17,8 +17,9 @@ import AddProduct from "../pages/Dashboard/Admin/AddProduct";
 import MyProduct from "../pages/Dashboard/Admin/MyProduct";
 import AddBlog from "../pages/Dashboard/Admin/AddBlog";
 import UpdateProduct from "../pages/Dashboard/Admin/UpdateProduct";
-import MyenrollDetails from "../pages/Dashboard/user/MyenrollDetails";
-import Myenroll from "../pages/Dashboard/user/Myenroll";
+import OrderItem from "../pages/Dashboard/user/OrterItem";
+import MyCart from "../pages/Dashboard/user/MyCart";
+import BlogDetails from "../pages/blog/BlogDetails";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -43,12 +44,18 @@ const myCreatedRoute = createBrowserRouter([
       },
       {
         path: "blog",
-        element:<Blog/>
+        element: <Blog />,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails/>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blog/${params.id}`),
       },
       {
         path: "contact",
-        element: <Contact/>,
-      }
+        element: <Contact />,
+      },
     ],
   },
   {
@@ -69,28 +76,29 @@ const myCreatedRoute = createBrowserRouter([
     children: [
       // user route
       {
-        path: "my-enroll",
+        path: "order-item",
         element: (
           <PrivateRoute>
-            <Myenroll />
+            <OrderItem />
           </PrivateRoute>
         ),
       },
       {
-        path: "my-enroll/:id",
+        path: "my-cart",
         element: (
           <PrivateRoute>
-            <MyenrollDetails />
+           <MyCart/>
           </PrivateRoute>
         ),
       },
+     
       // admin routes
       {
         path: "add-product",
         element: (
           <PrivateRoute>
             <AdminRoute>
-             <AddProduct/>
+              <AddProduct />
             </AdminRoute>
           </PrivateRoute>
         ),
@@ -100,7 +108,7 @@ const myCreatedRoute = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AdminRoute>
-            <MyProduct />
+              <MyProduct />
             </AdminRoute>
           </PrivateRoute>
         ),
@@ -109,9 +117,7 @@ const myCreatedRoute = createBrowserRouter([
         path: "update-product/:id",
         element: (
           <PrivateRoute>
-          
-              <UpdateProduct />
-          
+            <UpdateProduct />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
@@ -137,7 +143,7 @@ const myCreatedRoute = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-     
+
       // common route
       {
         path: "profile",

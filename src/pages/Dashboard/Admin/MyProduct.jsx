@@ -45,7 +45,7 @@ const MyProduct = () => {
     <div className="overflow-x-auto">
       <table className="table w-full">
         {/* head */}
-        <thead className="text-base">
+        <thead className="bg-gradient-to-r from-second to-first text-white text-xl">
           <tr>
             <th>#</th>
             <th>Title</th>

@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 
 import useAuth from "../../hooks/useAuth";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 const Navbar = () => {
+  const [cart] = useCart();
   const navLinks = (
     <>
       <li className="font-medium text-base">
@@ -87,7 +90,15 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-4 ">
+      <div>
+        <Link to="/dashboard/my-cart">
+          <button className="flex items-center ">
+            <FaShoppingCart className="mr-1"></FaShoppingCart>
+            <div className="badge badge-error">+{cart?.length}</div>
+          </button>
+        </Link>
+      </div>
         {user ? (
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

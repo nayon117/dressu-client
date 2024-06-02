@@ -5,7 +5,6 @@ import useRole from '../../../hooks/useRole'
 const Profile = () => {
   const { user } = useAuth()
   const [role] = useRole()
-  console.log(user)
   return (
     <div className='flex justify-center items-center h-screen'>
       <div className='bg-white shadow-lg rounded-2xl w-3/5'>
@@ -23,7 +22,7 @@ const Profile = () => {
             />
           </a>
 
-          <p className='p-2 px-4 text-xs text-white bg-[#332885] rounded-full'>
+          <p className='p-2 px-4 text-xs text-white bg-second rounded-full'>
             {role  }
           </p>
           <p className='mt-2 text-xl font-medium text-gray-800 '>
@@ -43,10 +42,10 @@ const Profile = () => {
               </p>
 
               <div>
-                <button className='bg-[#332885] px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053] block mb-1'>
+                <button className='bg-first px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053] block mb-1'>
                   Update Profile
                 </button>
-                <button className='bg-[#332885]  px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053]'>
+                <button className='bg-first  px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053]'>
                   Change Password
                 </button>
               </div>

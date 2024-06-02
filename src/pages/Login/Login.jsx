@@ -78,7 +78,7 @@ const Login = () => {
                   name="email"
                   {...register("email", { required: true })}
                   placeholder="email"
-                  className="p-3 rounded-md bg-third outline-none border-none"
+                  className="p-3 rounded-md bg-third outline-none border-none  "
                 />
                 {errors.email && (
                   <span className="text-red-500">This field is required</span>

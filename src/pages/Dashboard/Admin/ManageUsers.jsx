@@ -13,7 +13,7 @@ const ManageUsers = () => {
     <div className="overflow-x-auto">
       <table className="table w-full">
         {/* head */}
-        <thead>
+        <thead className="bg-gradient-to-r from-second to-first text-white text-xl">
           <tr>
             
             <th>Name</th>
