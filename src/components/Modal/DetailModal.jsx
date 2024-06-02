@@ -5,8 +5,8 @@ import CheckoutForm from "../Form/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
-const DetailModal = ({ closeModal, isOpen, itemInfo }) => {
-  console.log(itemInfo);
+const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
+ 
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -38,30 +38,30 @@ const DetailModal = ({ closeModal, isOpen, itemInfo }) => {
                   as="h3"
                   className="text-lg font-medium text-center leading-6 text-gray-900"
                 >
-                  Review Info Before Payment
+                  Order Summary
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    title: {itemInfo.title}
+                    Product: {itemInfo?.name}
                   </p>
                 </div>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">name: {itemInfo.name}</p>
+                  <p className="text-sm text-gray-500">Size: {itemInfo.selectedSize}</p>
                 </div>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    email: {itemInfo.email}
+                    Brand: {itemInfo?.brand}
                   </p>
                 </div>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    details: {itemInfo.details}
+                    details: {itemInfo.short_details}
                   </p>
                 </div>
 
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    price: $ {itemInfo.price}
+                    price: $ {itemInfo?.price}
                   </p>
                 </div>
                 <hr className="mt-8 " />

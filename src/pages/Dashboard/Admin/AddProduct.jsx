@@ -112,9 +112,14 @@ const AddProduct = () => {
               className="p-3 bg-gray-200 outline-none border-none rounded-md w-full"
             >
               <option value="Nike">Nike</option>
+              <option value="Levi's">Levi&apos;s</option>
               <option value="Adidas">Adidas</option>
-              <option value="Puma">Puma</option>
-              <option value="Under Armour">Under Armour</option>
+              <option value="North Face">North Face</option>
+              <option value="Ralph Lauren">Ralph Lauren</option>
+              <option value="Lululemon">Lululemon</option>
+              <option value="Hugo Boss">Hugo Boss</option>
+              <option value="Gap">Gap</option>
+              <option value="Champion">Champion</option>
             </select>
           </div>
           <div className="form-control w-full">

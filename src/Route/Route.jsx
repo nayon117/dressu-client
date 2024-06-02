@@ -39,7 +39,7 @@ const myCreatedRoute = createBrowserRouter([
         path: "/details/:id",
         element: <CardDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/class-add/${params.id}`),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "blog",

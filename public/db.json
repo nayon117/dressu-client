@@ -1,0 +1,303 @@
+[
+    {
+      "name": "Casual Cotton Shirt",
+      "price": 29.99,
+      "short_details": "Comfortable cotton shirt, perfect for casual wear.",
+      "long_details": "This cotton shirt is designed for comfort and style. It is breathable and perfect for daily wear.",
+      "size": ["M", "L", "XL"],
+      "brand": "Nike",
+      "category": "Shirt",
+      "image": "https://i.ibb.co/GkDVys7/ai-generated-8702726-640.jpg"
+    },
+    {
+      "name": "Slim Fit Jeans",
+      "price": 49.99,
+      "short_details": "Stylish slim fit jeans for a modern look.",
+      "long_details": "These jeans offer a slim fit with a slight stretch for added comfort. Ideal for both casual and semi-formal occasions.",
+      "size": ["M", "L", "XL", "XXL"],
+      "brand": "Levi's",
+      "category": "Pant",
+      "image": "https://i.ibb.co/ByQG6My/jaffa-1608610-640.jpg"
+    },
+    {
+      "name": "Winter Jacket",
+      "price": 89.99,
+      "short_details": "Warm and cozy jacket for the winter season.",
+      "long_details": "This winter jacket is made from high-quality materials to keep you warm during the cold months. Features a hood and multiple pockets.",
+      "size": ["L", "XL", "XXL"],
+      "brand": "North Face",
+      "category": "Outerwear",
+      "image": "https://i.ibb.co/stnTCwF/jacket-2821961-640.jpg"
+    },
+    {
+      "name": "Athletic T-Shirt",
+      "price": 19.99,
+      "short_details": "Breathable and lightweight t-shirt for workouts.",
+      "long_details": "Designed for maximum comfort during workouts, this athletic t-shirt is breathable and wicks away sweat.",
+      "size": ["M", "L", "XL"],
+      "brand": "Adidas",
+      "category": "Activewear",
+      "image": "https://i.ibb.co/hyrq2qh/man-2222498-640.jpg"
+    },
+    {
+      "name": "Classic Polo Shirt",
+      "price": 39.99,
+      "short_details": "Timeless polo shirt for a smart casual look.",
+      "long_details": "This classic polo shirt is a wardrobe staple. Made from soft cotton, it provides a comfortable fit and a polished appearance.",
+      "size": ["M", "L", "XL", "XXL"],
+      "brand": "Ralph Lauren",
+      "category": "Shirt",
+      "image": "https://i.ibb.co/fdQvdyD/polo.jpg"
+    },
+    {
+      "name": "Denim Jacket",
+      "price": 59.99,
+      "short_details": "Stylish denim jacket for a trendy look.",
+      "long_details": "A versatile denim jacket that adds a touch of style to any outfit. Durable and comfortable for all-day wear.",
+      "size": ["M", "L", "XL", "XXL"],
+      "brand": "Levi's",
+      "category": "Outerwear",
+      "image": "https://i.ibb.co/BLTDQhZ/blue-2566082-640.jpg"
+    },
+    {
+      "name": "Yoga Pants",
+      "price": 29.99,
+      "short_details": "Flexible and comfortable yoga pants for active wear.",
+      "long_details": "These yoga pants are designed to move with you. Made from a blend of stretchy materials, they provide maximum comfort and flexibility.",
+      "size": ["M", "L", "XL"],
+      "brand": "Lululemon",
+      "category": "Activewear",
+      "image": "https://i.ibb.co/8098r2H/yoga.jpg"
+    },
+    {
+      "name": "Formal Dress Shirt",
+      "price": 49.99,
+      "short_details": "Elegant dress shirt for formal occasions.",
+      "long_details": "Perfect for formal events, this dress shirt features a sleek design and is made from high-quality fabric. Ensures a sharp and sophisticated look.",
+      "size": ["M", "L", "XL", "XXL"],
+      "brand": "Hugo Boss",
+      "category": "Shirt",
+      "image": "https://i.ibb.co/PWtzGf3/61owdl-Dd7w-L-AC-SX569.jpg"
+    },
+    {
+      "name": "Chino Pants",
+      "price": 34.99,
+      "short_details": "Comfortable chino pants for a smart casual look.",
+      "long_details": "These chino pants are perfect for both casual and semi-formal occasions. Made from a soft fabric blend, they offer a comfortable fit.",
+      "size": ["M", "L", "XL", "XXL"],
+      "brand": "Gap",
+      "category": "Pant",
+      "image": "https://i.ibb.co/9sxbdX1/71wmsn-DRb2-L-AC-SX569.jpg"
+    },
+    {
+      "name": "Hooded Sweatshirt",
+      "price": 39.99,
+      "short_details": "Cozy hooded sweatshirt for everyday wear.",
+      "long_details": "Stay warm and comfortable with this hooded sweatshirt. Made from soft materials, it features a hood and a front pocket for convenience.",
+      "size": ["M", "L", "XL", "XXL"],
+      "brand": "Champion",
+      "category": "Outerwear",
+      "image": "https://i.ibb.co/RNkMcdz/5180g-DBGhe-L-AC-SX569.jpg"
+    },
+    {
+        "name": "Plaid Shirt",
+        "price": 32.99,
+        "short_details": "A stylish plaid shirt for casual wear.",
+        "long_details": "This plaid shirt is made from high-quality cotton and features a classic plaid pattern. Ideal for casual outings and everyday wear.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Gap",
+        "category": "Shirt",
+        "image": "https://i.ibb.co/BgKR5Tq/81-Vl-Nu3-N9t-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Chinos",
+        "price": 44.99,
+        "short_details": "Comfortable and versatile chinos.",
+        "long_details": "These relaxed fit chinos are crafted from soft and durable fabric, offering comfort and versatility for any occasion.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Ralph Lauren",
+        "category": "Pant",
+        "image": "https://i.ibb.co/khJ1spn/71-WVZf0-EA2-L-AC-SX569.jpg"
+      },
+      {
+        "name": "Puffer Jacket",
+        "price": 129.99,
+        "short_details": "Warm and lightweight puffer jacket.",
+        "long_details": "This insulated puffer jacket is designed to keep you warm without the bulk. Perfect for winter adventures and everyday wear.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "North Face",
+        "category": "Outerwear",
+        "image": "https://i.ibb.co/Hd4ngwM/61x-Iz-U8-Nx-PL-AC-SX679.jpg"
+      },
+      {
+        "name": "Running Tee",
+        "price": 24.99,
+        "short_details": "Breathable and moisture-wicking running tee.",
+        "long_details": "Stay cool and dry with this moisture-wicking running tee. Designed for optimal performance during workouts and runs.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Adidas",
+        "category": "Activewear",
+        "image": "https://i.ibb.co/fHSBsZG/81-Umy2c-Ltz-L-AC-SX569.jpg"
+      },
+      {
+        "name": "Striped Shirt",
+        "price": 34.99,
+        "short_details": "A classic striped shirt.",
+        "long_details": "This classic striped shirt is made from premium cotton and features a modern fit. Perfect for both casual and formal occasions.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Hugo Boss",
+        "category": "Shirt",
+        "image": "https://i.ibb.co/7JjVpBd/81-Cd0-GNom-ML-AC-SX679.jpg"
+      },
+      {
+        "name": "Cargo Pants",
+        "price": 59.99,
+        "short_details": "Stylish and functional cargo pants.",
+        "long_details": "These tapered fit cargo pants offer both style and functionality. Made from durable fabric with plenty of pockets for storage.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Levi's",
+        "category": "Pant",
+        "image": "https://i.ibb.co/CnCXD91/51lrv-BS8l-RL-AC-SY879.jpg"
+      },
+      {
+        "name": "Windbreaker",
+        "price": 89.99,
+        "short_details": "Lightweight and packable windbreaker.",
+        "long_details": "This lightweight windbreaker is perfect for outdoor activities. It is packable and offers protection against wind and light rain.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Nike",
+        "category": "Outerwear",
+        "image": "https://i.ibb.co/CVjcXWf/61-CA3axp-STL-AC-SX569.jpg"
+      },
+      {
+        "name": "Yoga Leggings",
+        "price": 34.99,
+        "short_details": "Comfortable high-waisted yoga leggings.",
+        "long_details": "These high-waisted yoga leggings are made from stretchy and breathable fabric, offering maximum comfort and flexibility during yoga sessions.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Lululemon",
+        "category": "Activewear",
+        "image": "https://i.ibb.co/CtNDvKC/717q7es6n-US-AC-SY741.jpg"
+      },
+      {
+        "name": "Silk Shirt",
+        "price": 79.99,
+        "short_details": "An elegant silk shirt.",
+        "long_details": "This elegant silk shirt is made from luxurious silk fabric and is perfect for special occasions or formal events.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Ralph Lauren",
+        "category": "Shirt",
+        "image": "https://i.ibb.co/tsv6DMm/61p-F6-3hr-LL-AC-SX569.jpg"
+      },
+      {
+        "name": "Dress Pants",
+        "price": 69.99,
+        "short_details": "Tailored slim fit dress pants.",
+        "long_details": "These slim fit dress pants are tailored for a perfect fit. Ideal for formal events or office wear.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Hugo Boss",
+        "category": "Pant",
+        "image": "https://i.ibb.co/fH6cyFL/61buv-Hdh-JL-AC-SX679.jpg"
+      },
+      {
+        "name": "Flannel Shirt",
+        "price": 29.99,
+        "short_details": "Cozy flannel shirt for casual wear.",
+        "long_details": "This flannel shirt is made from soft fabric and features a classic check pattern, perfect for layering in cooler weather.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Gap",
+        "category": "Shirt",
+        "image": "https://i.ibb.co/Gn2TN4x/71-MDJ2-AP-0-L-AC-SY741.jpg"
+      },
+      {
+        "name": "Slim Jeans",
+        "price": 49.99,
+        "short_details": "Modern slim fit jeans.",
+        "long_details": "These slim fit jeans are crafted from high-quality denim and offer a modern, stylish look for any occasion.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Levi's",
+        "category": "Pant",
+        "image": "https://i.ibb.co/yyZcLv2/61-Yvy-MSvin-L-AC-SY741.jpg"
+      },
+      {
+        "name": "Denim Jacket",
+        "price": 79.99,
+        "short_details": "Classic denim jacket for all seasons.",
+        "long_details": "This denim jacket features a timeless design and is perfect for layering throughout the year. Made from durable denim.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Ralph Lauren",
+        "category": "Outerwear",
+        "image": "https://i.ibb.co/fxXMtkv/61-YJOYMg-In-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Track Pants",
+        "price": 34.99,
+        "short_details": "Comfortable track pants for workouts.",
+        "long_details": "These track pants are designed for comfort and flexibility, making them ideal for workouts and casual wear.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Nike",
+        "category": "Activewear",
+        "image": "https://i.ibb.co/nLBXgQd/61-Eaz-ZSytp-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Oxford Shirt",
+        "price": 39.99,
+        "short_details": "Classic oxford shirt for formal and casual wear.",
+        "long_details": "This oxford shirt is made from premium cotton and offers a versatile style suitable for both formal and casual settings.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Hugo Boss",
+        "category": "Shirt",
+        "image": "https://i.ibb.co/hfz1Pjz/71-Q6t-Zt3-F-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Khaki Pants",
+        "price": 42.99,
+        "short_details": "Versatile khaki pants for everyday wear.",
+        "long_details": "These khaki pants are made from durable fabric and offer a comfortable fit, perfect for both casual and business casual attire.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Gap",
+        "category": "Pant",
+        "image": "https://i.ibb.co/Fn1rMwN/81-o-KL7u8s-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Rain Jacket",
+        "price": 99.99,
+        "short_details": "Waterproof rain jacket for all weather.",
+        "long_details": "This rain jacket is designed to keep you dry and comfortable in wet weather. Made from waterproof materials with a breathable lining.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "North Face",
+        "category": "Outerwear",
+        "image": "https://i.ibb.co/0D8LTFN/81b-Er-ULE7-CL-AC-SX569.jpg"
+      },
+      {
+        "name": "Gym Shorts",
+        "price": 24.99,
+        "short_details": "Lightweight gym shorts for active wear.",
+        "long_details": "These gym shorts are made from breathable fabric and offer maximum comfort and flexibility during workouts.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Champion",
+        "category": "Activewear",
+        "image": "https://i.ibb.co/ygFMs3Y/81x-R5-Dyg-Qi-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Henley Shirt",
+        "price": 27.99,
+        "short_details": "Casual henley shirt with a modern fit.",
+        "long_details": "This henley shirt features a three-button placket and is made from soft, comfortable fabric. Ideal for casual outings.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Ralph Lauren",
+        "category": "Shirt",
+        "image": "https://i.ibb.co/p2sy3WJ/71-O2q-Ezwjr-L-AC-SX679.jpg"
+      },
+      {
+        "name": "Jogger Pants",
+        "price": 39.99,
+        "short_details": "Stylish jogger pants for comfort and style.",
+        "long_details": "These jogger pants are made from soft, stretchy fabric and offer a relaxed fit with a modern look. Perfect for lounging or casual wear.",
+        "size": ["M", "L", "XL", "XXL"],
+        "brand": "Lululemon",
+        "category": "Pant",
+        "image": "https://i.ibb.co/wLX052t/61-TU2-YMe-E-L-AC-SX569.jpg"
+      }
+  ]
+  
