@@ -8,7 +8,7 @@ import axiosSecure from "../../../api";
 const MyProduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch("https://dressu-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -39,7 +39,6 @@ const MyProduct = () => {
       }
     });
   };
-  
 
   return (
     <div className="overflow-x-auto">
@@ -71,7 +70,7 @@ const MyProduct = () => {
               </td>
 
               <td>{item.category}</td>
-              
+
               <td>
                 <Link to={`/dashboard/update-product/${item._id}`}>
                   <button className="text-xl">
@@ -87,8 +86,6 @@ const MyProduct = () => {
                   <MdDeleteForever />
                 </button>
               </td>
-             
-              
             </tr>
           ))}
         </tbody>
