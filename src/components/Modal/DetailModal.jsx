@@ -64,6 +64,11 @@ const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
                     price: $ {(itemInfo.price).toFixed(2)}
                   </p>
                 </div>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                    Quantity: {itemInfo?.selectedQuantity}
+                  </p>
+                </div>
                 <hr className="mt-8 " />
                 {/* Card data form */}
                 <Elements stripe={stripePromise}>

@@ -7,7 +7,7 @@ const OrderItem = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?userEmail=${user.email}`)
+    fetch(`https://dressu-server.vercel.app/bookings?userEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user?.email]);
