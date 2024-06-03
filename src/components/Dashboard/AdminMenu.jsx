@@ -3,6 +3,8 @@ import { MdFlightClass } from "react-icons/md";
 import MenuItem from "./MenuItem";
 import { BsFillHouseAddFill } from "react-icons/bs";
 import { MdHomeWork } from "react-icons/md";
+import { MdBookmarkBorder } from "react-icons/md";
+
 
 
 const AdminMenu = () => {
@@ -18,6 +20,11 @@ const AdminMenu = () => {
      label="My Product" 
      address="/dashboard/my-product"
       />
+       <MenuItem
+      icon={MdBookmarkBorder }
+      label="Orders"
+      address="/dashboard/customer-order"
+    />
     <MenuItem
       icon={FaUserCog}
       label="Manage Users"
@@ -28,6 +35,7 @@ const AdminMenu = () => {
       label="Add Blog"
       address="/dashboard/add-blog"
     />
+   
   </>
   );
 };

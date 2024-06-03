@@ -20,6 +20,7 @@ import UpdateProduct from "../pages/Dashboard/Admin/UpdateProduct";
 import OrderItem from "../pages/Dashboard/user/OrterItem";
 import MyCart from "../pages/Dashboard/user/MyCart";
 import BlogDetails from "../pages/blog/BlogDetails";
+import CustomerOrder from "../pages/Dashboard/Admin/CustomerOrder";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -108,6 +109,16 @@ const myCreatedRoute = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <MyProduct />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "customer-order",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+            <CustomerOrder/>
             </AdminRoute>
           </PrivateRoute>
         ),

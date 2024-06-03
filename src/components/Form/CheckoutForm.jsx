@@ -21,7 +21,6 @@ const CheckoutForm = ({  itemInfo, closeModal,validateAddress }) => {
   useEffect(() => {
     if (itemInfo.price > 0) {
       createPaymentIntent({ price: itemInfo.price }).then((data) => {
-        console.log(data.clientSecret);
         setClientSecret(data.clientSecret);
       });
     }
