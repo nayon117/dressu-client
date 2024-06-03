@@ -34,13 +34,12 @@ const myCreatedRoute = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
-        loader: () => fetch("https://dressu-server.vercel.app/products-count"),
       },
       {
         path: "/details/:id",
         element: <CardDetails />,
         loader: ({ params }) =>
-          fetch(`https://dressu-server.vercel.app/product/${params.id}`),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "blog",
@@ -50,7 +49,7 @@ const myCreatedRoute = createBrowserRouter([
         path: "/blog/:id",
         element: <BlogDetails />,
         loader: ({ params }) =>
-          fetch(`https://dressu-server.vercel.app/blog/${params.id}`),
+          fetch(`http://localhost:5000/blog/${params.id}`),
       },
       {
         path: "contact",
@@ -121,7 +120,7 @@ const myCreatedRoute = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://dressu-server.vercel.app/product/${params.id}`),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "manage-users",

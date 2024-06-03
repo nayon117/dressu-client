@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState, useCallback } from "react";
 import Card from "../../components/Shared/Card";
 
 const Shop = () => {
@@ -7,31 +6,39 @@ const Shop = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-  const { count } = useLoaderData();
+  const [category, setCategory] = useState("");
+  const [sortPrice, setSortPrice] = useState("");
+  const [count, setCount] = useState(0);
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
-
   const pages = [...Array(numberOfPages).keys()];
 
-  useEffect(() => {
-    fetch(
-      `https://dressu-server.vercel.app/products?page=${currentPage}&size=${itemsPerPage}`
-    )
+  const fetchProducts = useCallback(() => {
+    const params = new URLSearchParams({
+      page: currentPage,
+      size: itemsPerPage,
+      category: category || "",
+      sort: sortPrice || "",
+    });
+
+    fetch(`http://localhost:5000/products?${params.toString()}`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, [currentPage, itemsPerPage]);
+      .then((data) => {
+        setProducts(data.products);
+        setCount(data.count);
+      });
+  }, [currentPage, itemsPerPage, category, sortPrice]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Filter  approved class based on the search query
-  const filteredApproved = products.filter((approves) =>
-    approves.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   const handleItemsPerPage = (e) => {
     const val = parseInt(e.target.value);
-    console.log(val);
     setItemsPerPage(val);
     setCurrentPage(0);
   };
@@ -48,24 +55,62 @@ const Shop = () => {
     }
   };
 
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+    setCurrentPage(0);
+  };
+
+  const handleSortPriceChange = (e) => {
+    setSortPrice(e.target.value);
+    setCurrentPage(0);
+  };
+
+  const filteredApproved = products.filter((approves) =>
+    approves.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="mt-12">
       <div>
         <input
           type="text"
           placeholder="search here ..."
-          className="outline-none p-3 rounded-md border-none bg-third   block mx-auto
-        w-full max-w-md"
+          className="outline-none p-3 rounded-md border-none bg-third block mx-auto w-full max-w-md"
           onChange={handleSearchChange}
           value={searchQuery}
         />
+      </div>
+      <div className="flex items-center justify-between mt-12">
+        <div>
+          <select
+            onChange={handleCategoryChange}
+            value={category}
+            className="btn mx-2 btn-sm bg-second text-white outline-none hover:bg-white hover:text-second"
+          >
+            <option value="">All Categories</option>
+            <option value="Shirt">Shirt</option>
+            <option value="Pant">Pant</option>
+            <option value="Outerwear">Outerwear</option>
+            <option value="Activewear">Activewear</option>
+          </select>
+        </div>
+        <div>
+          <select
+            onChange={handleSortPriceChange}
+            value={sortPrice}
+            className="btn mx-2 btn-sm bg-second text-white outline-none border-none hover:bg-white hover:text-second"
+          >
+            <option value="">Sort by Price</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+          </select>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredApproved?.map((item) => (
           <Card key={item._id} item={item}></Card>
         ))}
       </div>
-
       <div className="flex mt-12 items-center justify-center">
         <button
           onClick={handlePrevPage}
@@ -77,9 +122,13 @@ const Shop = () => {
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
-            className="btn mr-2 btn-sm bg-second hover:bg-white hover:text-second text-white focus:bg-red-500"
+            className={`btn mr-2 btn-sm ${
+              page === currentPage
+                ? "bg-red-500"
+                : "bg-second hover:bg-white hover:text-second"
+            } text-white`}
           >
-            {page}
+            {page + 1}
           </button>
         ))}
         <button
@@ -100,4 +149,5 @@ const Shop = () => {
     </div>
   );
 };
+
 export default Shop;
