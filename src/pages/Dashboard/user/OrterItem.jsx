@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import MyOrderCard from "./MyOrderCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../api/useAxiosPublic";
 
 const OrderItem = () => {
-  const { user } = useAuth() || {};
-  const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/personal-bookings?userEmail=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [user?.email]);
+  const axiosPublic = useAxiosPublic();
+  const { user } = useAuth() || {};
+
+  const { data:orders, isLoading, isError} = useQuery({
+      queryKey: ["products"],
+      queryFn: async () => {
+          const res = await axiosPublic.get(`/personal-bookings?userEmail=${user.email}`);
+          return res.data;
+      },
+  });
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error fetching data</div>;
+  
 
   return (
     <div>

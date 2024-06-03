@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axiosSecure from "../../../api";
-import { useLoaderData } from "react-router-dom";
+import {useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../../api/useAxiosPublic";
 
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
@@ -9,8 +9,9 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const UpdateProduct = () => {
   const { name, price, short_details, long_details, size, brand, category, image, _id } = useLoaderData();
-  const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
+
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     let imageUrl = image; // Default to the existing image URL

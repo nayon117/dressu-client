@@ -21,6 +21,7 @@ import OrderItem from "../pages/Dashboard/user/OrterItem";
 import MyCart from "../pages/Dashboard/user/MyCart";
 import BlogDetails from "../pages/blog/BlogDetails";
 import CustomerOrder from "../pages/Dashboard/Admin/CustomerOrder";
+import OrderDetails from "../pages/Dashboard/Admin/OrderDetails";
 
 const myCreatedRoute = createBrowserRouter([
   {
@@ -39,8 +40,6 @@ const myCreatedRoute = createBrowserRouter([
       {
         path: "/details/:id",
         element: <CardDetails />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "blog",
@@ -49,8 +48,6 @@ const myCreatedRoute = createBrowserRouter([
       {
         path: "/blog/:id",
         element: <BlogDetails />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/blog/${params.id}`),
       },
       {
         path: "contact",
@@ -119,6 +116,16 @@ const myCreatedRoute = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
             <CustomerOrder/>
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "customer-order/:id",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+            <OrderDetails/>
             </AdminRoute>
           </PrivateRoute>
         ),

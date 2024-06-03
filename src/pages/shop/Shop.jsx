@@ -1,5 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/Shared/Card";
+import useAxiosPublic from "../../api/useAxiosPublic";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -9,29 +10,32 @@ const Shop = () => {
   const [category, setCategory] = useState("");
   const [sortPrice, setSortPrice] = useState("");
   const [count, setCount] = useState(0);
+  const axiosPublic = useAxiosPublic();
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
   const pages = [...Array(numberOfPages).keys()];
 
-  const fetchProducts = useCallback(() => {
-    const params = new URLSearchParams({
+  const fetchProducts = async () => {
+    const params = {
       page: currentPage,
       size: itemsPerPage,
       category: category || "",
       sort: sortPrice || "",
-    });
-
-    fetch(`http://localhost:5000/products?${params.toString()}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products);
-        setCount(data.count);
-      });
-  }, [currentPage, itemsPerPage, category, sortPrice]);
-
+    };
+  
+    try {
+      const { data } = await axiosPublic.get(`/products?${new URLSearchParams(params).toString()}`);
+      setProducts(data.products);
+      setCount(data.count);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      // Handle error, e.g., display a toast message
+    }
+  };
+  
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+  }, [currentPage, itemsPerPage, category, sortPrice]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);

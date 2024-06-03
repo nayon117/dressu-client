@@ -1,19 +1,25 @@
-import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect} from "react";
+import {  useParams } from "react-router-dom";
+import useAxiosPublic from "../../api/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const BlogDetails = () => {
-    const [blogInfo, setBlogInfo] = useState({})
-    const blogDetails = useLoaderData()
-    
-    useEffect(() => {
-        if (blogDetails) {
-             setBlogInfo(blogDetails)
-         }
-    }, [blogDetails])
+  const axiosPublic = useAxiosPublic();
+  const params = useParams();
 
-    useEffect(()=>{
-        window.scrollTo(0,0)
-    },[])
+  const { data:blogInfo, isLoading, isError } = useQuery({
+      queryKey: ["blogs", params.id],
+      queryFn: async () => {
+          const res = await axiosPublic.get(`/blog/${params.id}`);
+          return res.data;
+      },
+  });
+  
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error fetching data</div>;
 
   return (
     <section className=" light py-14 md:py-24  ">
