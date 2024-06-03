@@ -36,15 +36,12 @@ const Blog = () => {
               alt={post.title}
               className="h-60 w-full shadow-lg dark:shadow-none"
             />
-            <div className="absolute bottom-2 left-2 text-lg leading-6 px-6 py-3 font-black bg-white opacity-80 rounded-lg">
-              {post.date}
-            </div>
           </div>
           <div className="p-4 pb-8 md:p-6">
             <p className="font-light text-sm leading-6">
               By <a href="" className="text-first">{post.brand}</a>
             </p>
-            <h4 className="font-medium text-2xl">
+            <h4 className="font-medium text-xl whitespace-nowrap">
               {post.title}
             </h4>
             <p className="opacity-60 mt-3 mb-6">
@@ -52,7 +49,7 @@ const Blog = () => {
             </p>
             <Link
              to={`/blog/${post._id}`}
-              className="bg-transparent hover:bg-blue-600 border border-first hover:text-white py-2 px-5 rounded transition mb-5"
+              className="bg-transparent hover:bg-first border border-first hover:text-white py-2 px-5 rounded transition mb-5"
             >
               Read More
             </Link>
@@ -63,7 +60,7 @@ const Blog = () => {
   };
 
   return (
-    <section className="light text-stone-800 bg-white dark:bg-[#0b1727] dark:text-white">
+    <section className="light">
       <img
         src="https://cdn.easyfrontend.com/pictures/blog/wide-banner.png"
         alt=""

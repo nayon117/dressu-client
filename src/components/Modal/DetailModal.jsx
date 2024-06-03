@@ -61,7 +61,7 @@ const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
 
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    price: $ {itemInfo?.price}
+                    price: $ {(itemInfo.price).toFixed(2)}
                   </p>
                 </div>
                 <hr className="mt-8 " />

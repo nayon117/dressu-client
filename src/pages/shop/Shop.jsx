@@ -85,7 +85,7 @@ const Shop = () => {
           <select
             onChange={handleCategoryChange}
             value={category}
-            className="btn mx-2 btn-sm bg-second text-white outline-none hover:bg-white hover:text-second"
+            className="btn mx-2 btn-sm bg-second text-white outline-none border-none hover:bg-white hover:text-second"
           >
             <option value="">All Categories</option>
             <option value="Shirt">Shirt</option>

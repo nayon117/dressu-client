@@ -8,14 +8,24 @@ import useCart from "../../hooks/useCart";
 import { useNavigate } from "react-router-dom";
 
 const DetailsCard = ({ detailInfo }) => {
-  const {_id, name, image, price, long_details, brand, category,short_details,size } =
-    detailInfo || {};
+  const {
+    _id,
+    name,
+    image,
+    price,
+    long_details,
+    brand,
+    category,
+    short_details,
+    size,
+  } = detailInfo || {};
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedSize, setSelectedSize] = useState("L");
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
   const { user } = useAuth();
-  const axiosPublic = useAxiosPublic()
-  const [,refetch] = useCart()
-  const navigate = useNavigate()
+  const axiosPublic = useAxiosPublic();
+  const [, refetch] = useCart();
+  const navigate = useNavigate();
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -30,7 +40,7 @@ const DetailsCard = ({ detailInfo }) => {
         userImage: user.photoURL || "",
         title: detailInfo?.title,
         name: detailInfo?.name,
-        price: detailInfo?.price,
+        price: detailInfo?.price * selectedQuantity,
         image: detailInfo?.image,
         long_details: detailInfo?.long_details,
         productId: detailInfo?._id,
@@ -40,7 +50,11 @@ const DetailsCard = ({ detailInfo }) => {
       };
       setItemInfo(newInfo);
     }
-  }, [user, detailInfo]);
+  }, [user, detailInfo,selectedQuantity]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!itemInfo) {
     return (
@@ -50,9 +64,7 @@ const DetailsCard = ({ detailInfo }) => {
     );
   }
 
-
-  const handleAddToCart =()=> {
-   
+  const handleAddToCart = () => {
     if (user && user.email) {
       // send to database
       const cartItem = {
@@ -63,25 +75,23 @@ const DetailsCard = ({ detailInfo }) => {
         price,
         size,
         brand,
-        category
-      }
-      axiosPublic.post('/carts', cartItem)
-        .then(res => {
-          console.log(res.data);
-          if (res.data.insertedId) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: `${name} added to your successfully`,
-              showConfirmButton: false,
-              timer: 1500
-            });
-            // refetch cart to update the cart items count 
-            refetch()
-          }
-      })
-    }
-    else {
+        category,
+      };
+      axiosPublic.post("/carts", cartItem).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${name} added to your successfully`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          // refetch cart to update the cart items count
+          refetch();
+        }
+      });
+    } else {
       Swal.fire({
         title: "You are not logged in?",
         text: "Please log in to add to the cart!",
@@ -89,15 +99,25 @@ const DetailsCard = ({ detailInfo }) => {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, log In!"
+        confirmButtonText: "Yes, log In!",
       }).then((result) => {
         if (result.isConfirmed) {
           // send the user to login page
-          navigate('/login',{state:{from:location}})
+          navigate("/login", { state: { from: location } });
         }
       });
     }
-  }
+  };
+
+  const handleIncrementQuantity = () => {
+    setSelectedQuantity(selectedQuantity + 1);
+  };
+
+  const handleDecrementQuantity = () => {
+    if (selectedQuantity > 1) {
+      setSelectedQuantity(selectedQuantity - 1);
+    }
+  };
 
   return (
     <div className="font-sans bg-white">
@@ -128,11 +148,9 @@ const DetailsCard = ({ detailInfo }) => {
           </div>
 
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-extrabold text-[#333]">
-              {name}
-            </h2>
+            <h2 className="text-2xl font-extrabold text-[#333]">{name}</h2>
             <div className="flex flex-wrap gap-4 mt-4">
-              <p className="text-[#333] text-3xl font-bold">${price}</p>
+              <p className="text-[#333] text-3xl font-bold">${(price * selectedQuantity).toFixed(2)}</p>
               <p className="text-gray-400 text-lg">
                 <strike>$99</strike>
                 <span className="text-sm ml-1">Tax included</span>
@@ -184,24 +202,69 @@ const DetailsCard = ({ detailInfo }) => {
             </div>
 
             <div className="mt-10">
-  <h3 className="text-lg font-bold text-gray-800">Choose a Size</h3>
-  <div className="flex flex-wrap gap-3 mt-4">
-    {size.map((sizeOption) => (
-      <button
-        key={sizeOption}
-        type="button"
-        className={`w-10 h-10 border-2 rounded-full shrink-0 ${
-          selectedSize === sizeOption
-            ? "bg-[#333] text-white"
-            : "bg-gray-100 text-[#333]"
-        }`}
-        onClick={() => setSelectedSize(sizeOption)}
-      >
-        {sizeOption}
-      </button>
-    ))}
-  </div>
-</div>
+              <h3 className="text-lg font-bold text-gray-800">Choose a Size</h3>
+              <div className="flex flex-wrap gap-3 mt-4">
+                {size.map((sizeOption) => (
+                  <button
+                    key={sizeOption}
+                    type="button"
+                    className={`w-10 h-10 border-2 rounded-full shrink-0 ${
+                      selectedSize === sizeOption
+                        ? "bg-[#333] text-white"
+                        : "bg-gray-100 text-[#333]"
+                    }`}
+                    onClick={() => setSelectedSize(sizeOption)}
+                  >
+                    {sizeOption}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-4 mt-4">
+              <span className="text-[#333] font-bold">Quantity:</span>
+              <div className="flex items-center border border-gray-300 rounded-md">
+                <button
+                  onClick={handleDecrementQuantity}
+                  className="px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:outline-none"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-gray-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M20 12H4"
+                    />
+                  </svg>
+                </button>
+                <span className="px-3 py-1">{selectedQuantity}</span>
+                <button
+                  onClick={handleIncrementQuantity}
+                  className="px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:outline-none"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-gray-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
             <div className="flex flex-wrap gap-4 mt-10">
               <button
@@ -212,9 +275,9 @@ const DetailsCard = ({ detailInfo }) => {
                 Buy now
               </button>
               <DetailModal
-              isOpen={isOpen}
-              itemInfo={{ ...itemInfo, selectedSize }}
-              closeModal={closeModal}
+                isOpen={isOpen}
+                itemInfo={{ ...itemInfo, selectedSize,selectedQuantity }}
+                closeModal={closeModal}
               />
               <button
                 onClick={handleAddToCart}
@@ -238,7 +301,8 @@ const DetailsCard = ({ detailInfo }) => {
               Details <span className="ml-4 float-right">{short_details}</span>
             </li>
             <li className="text-sm">
-              Additional Details <span className="ml-4 float-right">{long_details}</span>
+              Additional Details{" "}
+              <span className="ml-4 float-right">{long_details}</span>
             </li>
             <li className="text-sm">
               Category
@@ -249,13 +313,12 @@ const DetailsCard = ({ detailInfo }) => {
               <span className="ml-4 float-right">{brand}</span>
             </li>
             <li className="text-sm">
-             Size <span className="ml-4 float-right">{size.join(' , ')}</span>
+              Size <span className="ml-4 float-right">{size.join(" , ")}</span>
             </li>
           </ul>
         </div>
 
-
-      {/* review */}
+        {/* review */}
         <div className="mt-16 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
           <h3 className="text-lg font-bold text-[#333]">Reviews(10)</h3>
           <div className="grid md:grid-cols-2 gap-12 mt-6">

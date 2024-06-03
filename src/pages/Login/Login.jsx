@@ -7,12 +7,15 @@ import { FcGoogle } from "react-icons/fc";
 import { TbFidgetSpinner } from "react-icons/tb";
 import Lottie from "lottie-react";
 import { getToken, saveUser } from "../../api/auth";
+import { useState } from "react";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 const Login = () => {
   const { signIn, signInWithGoogle, loading } = useAuth() || {}
   const navigate = useNavigate();
   const location = useLocation()
   const from = location?.state?.from?.pathname || '/'
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -57,6 +60,10 @@ const Login = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
   return (
     <>
       <div className="hero min-h-screen ">
@@ -84,20 +91,31 @@ const Login = () => {
                   <span className="text-red-500">This field is required</span>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative ">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   {...register("password", {
                     minLength: 6,
                     required: true,
                   })}
                   placeholder="password"
-                  className="p-3 rounded-md bg-third outline-none border-none"
+                  className="p-3 rounded-md bg-third outline-none border-none shadow-none"
                 />
+                 <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute inset-y-0 right-3 flex items-center focus:outline-none top-8"
+                >
+                  {showPassword ? (
+                    <BsEyeSlash className="text-first" />
+                  ) : (
+                    <BsEye className="text-first" />
+                  )}
+                </button>
                 {errors.password?.type === "required" && (
                   <span className="text-red-500">This field is required</span>
                 )}

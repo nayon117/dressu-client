@@ -8,11 +8,15 @@ import toast from "react-hot-toast";
 import registrationImg from "../../assets/regis.json";
 import Lottie from "lottie-react";
 import { getToken, saveUser } from "../../api/auth";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { useState } from "react";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { createUser, updateUserProfile, signInWithGoogle, loading } =
     useAuth() || {}
+
   const {
     register,
     // reset,
@@ -68,6 +72,10 @@ const Register = () => {
       console.log(error);
       toast.error(error?.message);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
   return (
@@ -129,7 +137,7 @@ const Register = () => {
                   <span className="text-red-500"> Email is required</span>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -143,6 +151,17 @@ const Register = () => {
                   placeholder="password"
                   className="p-3 rounded-md bg-third outline-none border-none"
                 />
+                 <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute inset-y-0 right-3 flex items-center focus:outline-none top-8"
+                >
+                  {showPassword ? (
+                    <BsEyeSlash className="text-first" />
+                  ) : (
+                    <BsEye className="text-first" />
+                  )}
+                </button>
                 {errors.password?.type === "required" && (
                   <span className="text-red-500"> password is required</span>
                 )}
