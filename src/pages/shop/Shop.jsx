@@ -15,27 +15,26 @@ const Shop = () => {
   const numberOfPages = Math.ceil(count / itemsPerPage);
   const pages = [...Array(numberOfPages).keys()];
 
-  const fetchProducts = async () => {
-    const params = {
-      page: currentPage,
-      size: itemsPerPage,
-      category: category || "",
-      sort: sortPrice || "",
-    };
-  
-    try {
-      const { data } = await axiosPublic.get(`/products?${new URLSearchParams(params).toString()}`);
-      setProducts(data.products);
-      setCount(data.count);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      // Handle error, e.g., display a toast message
-    }
-  };
-  
   useEffect(() => {
+    const fetchProducts = async () => {
+      const params = {
+        page: currentPage,
+        size: itemsPerPage,
+        category: category || "",
+        sort: sortPrice || "",
+      };
+    
+      try {
+        const { data } = await axiosPublic.get(`/products?${new URLSearchParams(params).toString()}`);
+        setProducts(data.products);
+        setCount(data.count);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
     fetchProducts();
-  }, [currentPage, itemsPerPage, category, sortPrice]);
+  }, [axiosPublic, currentPage, itemsPerPage, category, sortPrice]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
