@@ -7,7 +7,7 @@ import { createPaymentIntent, saveItemInfo } from '../../api/details'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-const CheckoutForm = ({  itemInfo, closeModal }) => {
+const CheckoutForm = ({  itemInfo, closeModal,validateAddress }) => {
   const stripe = useStripe()
   const elements = useElements()
   const { user } = useAuth()
@@ -34,7 +34,11 @@ const CheckoutForm = ({  itemInfo, closeModal }) => {
     if (!stripe || !elements) {
       return
     }
-
+    
+    if (!validateAddress()) {
+      setCardError('Please fill in all address fields.');
+      return;
+    }
     const card = elements.getElement(CardElement)
     if (card === null) {
       return

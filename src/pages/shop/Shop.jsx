@@ -21,7 +21,7 @@ const Shop = () => {
       sort: sortPrice || "",
     });
 
-    fetch(`https://dressu-server.vercel.app/products?${params.toString()}`)
+    fetch(`http://localhost:5000/products?${params.toString()}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products);

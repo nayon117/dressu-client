@@ -1,12 +1,25 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Elements } from "@stripe/react-stripe-js";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import CheckoutForm from "../Form/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
-const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
- 
+const DetailModal = ({ closeModal, isOpen, itemInfo }) => {
+  const [address, setAddress] = useState("");
+  const [district, setDistrict] = useState("");
+  const [division, setDivision] = useState("");
+  const [isAddressValid, setIsAddressValid] = useState(true);
+
+  const validateAddress = () => {
+    if (!address || !district || !division) {
+      setIsAddressValid(false);
+      return false;
+    }
+    setIsAddressValid(true);
+    return true;
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -46,7 +59,9 @@ const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
                   </p>
                 </div>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">Size: {itemInfo.selectedSize}</p>
+                  <p className="text-sm text-gray-500">
+                    Size: {itemInfo.selectedSize}
+                  </p>
                 </div>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
@@ -61,7 +76,7 @@ const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
 
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    price: $ {(itemInfo.price).toFixed(2)}
+                    price: $ {itemInfo.price.toFixed(2)}
                   </p>
                 </div>
                 <div className="mt-2">
@@ -69,10 +84,58 @@ const DetailModal = ({ closeModal, isOpen, itemInfo}) => {
                     Quantity: {itemInfo?.selectedQuantity}
                   </p>
                 </div>
+
+
+                 <div className="mt-2">
+                    <label className="text-sm text-gray-500">Shipping Address: </label>
+                    <input
+                      type="text"
+                      className="bg-third p-2 outline-none border-none"
+                      placeholder="Address"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <label className="text-sm text-gray-500">District: </label>
+                    <input
+                      type="text"
+                      className="bg-third p-2 outline-none border-none"
+                      placeholder="District"
+                      value={district}
+                      onChange={(e) => setDistrict(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <label className="text-sm text-gray-500">Division: </label>
+                    <input
+                      type="text"
+                      className="bg-third p-2 outline-none border-none"
+                      placeholder="Division"
+                      value={division}
+                      onChange={(e) => setDivision(e.target.value)}
+                      required
+                    />
+                  </div>
+
+
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">Country: Bangladesh</p>
+                </div>
+                {!isAddressValid && (
+                  <p className="text-red-600 mt-2">
+                    Please fill in all address fields.
+                  </p>
+                )}
                 <hr className="mt-8 " />
                 {/* Card data form */}
                 <Elements stripe={stripePromise}>
-                  <CheckoutForm  closeModal={closeModal} itemInfo={itemInfo}/>
+                  <CheckoutForm closeModal={closeModal} 
+                   itemInfo={{ ...itemInfo, address, district, division}}
+                   validateAddress={validateAddress}
+                   />
                 </Elements>
               </Dialog.Panel>
             </Transition.Child>
