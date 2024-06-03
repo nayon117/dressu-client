@@ -21,11 +21,11 @@ const CustomerOrder =() => {
           <thead className="bg-gradient-to-r from-second to-first text-white text-xl">
             <tr>
               <th>#</th>
-              <th>Name</th>
+              <th>Product</th>
               <th>Image</th>
-              <th>Category</th>
-              <th>size</th>
-              <th>Quantity</th>
+              <th>Name</th>
+              <th>Total($)</th>
+              <th>Date</th>
               <th>Details</th>
             </tr>
           </thead>
@@ -44,9 +44,9 @@ const CustomerOrder =() => {
                   </div>
                 </td>
   
-                <td>{item?.category}</td>
-                <td>{item?.selectedSize}</td>
-                <td>{item?.selectedQuantity}</td>
+                <td>{item?.userName}</td>
+                <td>{item?.price}</td>
+                <td>{new Date(item?.date).toLocaleDateString()}</td>
                 <td><Link to={`/dashboard/customer-order/${item._id}`} >
                 <button className="btn btn-xs bg-first text-white outline-none border-none ">visit</button>
                 </Link></td>

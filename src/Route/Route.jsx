@@ -115,7 +115,7 @@ const myCreatedRoute = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AdminRoute>
-            <CustomerOrder/>
+              <CustomerOrder />
             </AdminRoute>
           </PrivateRoute>
         ),
@@ -125,7 +125,7 @@ const myCreatedRoute = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AdminRoute>
-            <OrderDetails/>
+              <OrderDetails />
             </AdminRoute>
           </PrivateRoute>
         ),
